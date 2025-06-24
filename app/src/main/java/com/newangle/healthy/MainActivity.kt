@@ -1,14 +1,15 @@
 package com.newangle.healthy
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.repeatOnLifecycle
 import com.newangle.healthy.base.BaseActivity
-import com.newangle.healthy.utils.LogUtil
+import com.orhanobut.logger.Logger
 
 class MainActivity : BaseActivity() {
     lateinit var mViewModel : MainViewModel
@@ -24,9 +25,9 @@ class MainActivity : BaseActivity() {
             insets
         }
         mStateTv = findViewById<TextView>(R.id.state)
-        mViewModel = MainViewModel()
+        mViewModel = MainViewModel(application as NewAngleApp)
         mViewModel.state.observe(this) {
-            LogUtil.d("thread 3" + Thread.currentThread().name)
+            Logger.i("main activity thread ${Thread.currentThread().name}")
             when(it) {
                 MainViewModel.State.NOT_BEGIN -> mStateTv.setText("")
                 is MainViewModel.State.FAILED -> mStateTv.setText(it.msg)

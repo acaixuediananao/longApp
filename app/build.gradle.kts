@@ -66,8 +66,10 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
+    implementation ("com.tencent:mmkv:2.2.2")
 
     // 辅助工具
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0") // 协程
     implementation("androidx.datastore:datastore-preferences:1.1.0") // 轻量数据存储
+    implementation ("com.orhanobut:logger:2.2.0")
 }

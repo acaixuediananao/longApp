@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "NewAngleHealthApp"
 include(":app")
- 
+include(":logger")
