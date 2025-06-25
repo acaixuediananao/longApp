@@ -19,10 +19,13 @@ import javax.inject.Inject
 class MainActivity : BaseActivity() {
     @Inject
     lateinit var mViewModel : MainViewModel
+    private val activityComponent by lazy {
+        (application as NewAngleApp).appComponent.activityComponent().create()
+    }
     lateinit var mStateTv : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as NewAngleApp).appComponent.activityComponent().create().inject(this)
+        activityComponent.inject(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)

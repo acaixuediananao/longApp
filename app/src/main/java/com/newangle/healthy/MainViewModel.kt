@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(app: NewAngleApp, factory: ActivityComponent.Factory)
+class MainViewModel @Inject constructor(app: NewAngleApp, activityComponent: ActivityComponent)
     : AndroidViewModel(application = app) {
 
             @Inject
@@ -21,7 +21,8 @@ class MainViewModel @Inject constructor(app: NewAngleApp, factory: ActivityCompo
             val state = _state.asLiveData()
 
             init {
-                factory.create().inject(this)
+                activityComponent.inject(this)
+                Logger.e("haha")
             }
 
             fun  login(userNumber:Long, userName:String) {

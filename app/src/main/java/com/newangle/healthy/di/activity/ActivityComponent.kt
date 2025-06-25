@@ -3,6 +3,7 @@ package com.newangle.healthy.di.activity
 import com.newangle.healthy.MainActivity
 import com.newangle.healthy.MainViewModel
 import com.newangle.healthy.setting.SettingActivity
+import com.newangle.healthy.setting.SettingViewModel
 import dagger.Subcomponent
 
 @ActivityScope
@@ -15,5 +16,7 @@ interface ActivityComponent {
 
     fun inject(mainActivity: MainActivity)
     fun inject(model: MainViewModel)
+
     fun inject(settingActivity: SettingActivity)
+    fun inject(settingViewModel: SettingViewModel)
 }
