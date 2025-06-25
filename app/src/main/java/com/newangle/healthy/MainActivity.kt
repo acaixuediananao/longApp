@@ -1,14 +1,18 @@
 package com.newangle.healthy
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.os.LocaleListCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.newangle.healthy.base.BaseActivity
+import com.newangle.healthy.setting.SettingActivity
 import com.orhanobut.logger.Logger
 
 class MainActivity : BaseActivity() {
@@ -37,6 +41,10 @@ class MainActivity : BaseActivity() {
         }
         findViewById<TextView>(R.id.next_page).setOnClickListener {
             mViewModel.login(123456L, "")
+        }
+        findViewById<TextView>(R.id.setting_page).setOnClickListener {
+            val intent = Intent(this, SettingActivity::class.java)
+            startActivity(intent)
         }
     }
 }

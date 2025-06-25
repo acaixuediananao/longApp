@@ -4,6 +4,7 @@ import android.content.Context
 import com.newangle.healthy.MainViewModel
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.login.LoginRepository
+import com.newangle.healthy.setting.SettingActivity
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -20,4 +21,5 @@ interface AppComponent {
     fun inject(app: NewAngleApp)
     fun inject(loginRepository: LoginRepository)
     fun inject(mainViewModel: MainViewModel)
+    fun inject(settingActivity: SettingActivity)
 }

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title">C\'est le titre</string>
+    <string name="hello">Bonjour le monde</string>
+    <string name="setting_page">Page des paramètres</string>
 </resources>
