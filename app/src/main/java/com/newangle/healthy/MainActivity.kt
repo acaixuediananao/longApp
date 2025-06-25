@@ -14,12 +14,15 @@ import androidx.core.view.WindowInsetsCompat
 import com.newangle.healthy.base.BaseActivity
 import com.newangle.healthy.setting.SettingActivity
 import com.orhanobut.logger.Logger
+import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
+    @Inject
     lateinit var mViewModel : MainViewModel
     lateinit var mStateTv : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (application as NewAngleApp).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -29,7 +32,6 @@ class MainActivity : BaseActivity() {
             insets
         }
         mStateTv = findViewById<TextView>(R.id.state)
-        mViewModel = MainViewModel(application as NewAngleApp)
         mViewModel.state.observe(this) {
             Logger.i("main activity thread ${Thread.currentThread().name}")
             when(it) {

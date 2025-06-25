@@ -1,5 +1,6 @@
 package com.newangle.healthy.login
 
+import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.bean.User
 import com.newangle.healthy.di.DaggerAppComponent
 import com.newangle.healthy.net.ApiService
@@ -9,11 +10,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class LoginRepository @Inject constructor() {
+class LoginRepository @Inject constructor(app: NewAngleApp) {
     @Inject
     lateinit var apiService: ApiService
     init {
-        DaggerAppComponent.create().inject(this)
+        DaggerAppComponent.factory().create(app).inject(this)
     }
 
     suspend fun login(phoneNumber : Long, userName : String): Response<User> =

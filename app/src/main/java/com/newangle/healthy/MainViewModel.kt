@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel(app: NewAngleApp): AndroidViewModel(application = app) {
+class MainViewModel @Inject constructor(app: NewAngleApp): AndroidViewModel(application = app) {
 
             @Inject
             lateinit var loginRepository: LoginRepository

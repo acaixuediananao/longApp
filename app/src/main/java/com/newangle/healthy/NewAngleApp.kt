@@ -14,7 +14,7 @@ class NewAngleApp : Application() {
     }
 
     val appComponent: AppComponent by lazy {
-        DaggerAppComponent.factory().create()
+        DaggerAppComponent.factory().create(this)
     }
 
     override fun onCreate() {
