@@ -1,5 +1,6 @@
 package com.newangle.healthy
 
+import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -12,8 +13,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(app: NewAngleApp, activityComponent: ActivityComponent)
-    : AndroidViewModel(application = app) {
+class MainViewModel @Inject constructor(application: Application, activityComponent: ActivityComponent)
+    : AndroidViewModel(application) {
 
             @Inject
             lateinit var loginRepository: LoginRepository
