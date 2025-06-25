@@ -19,7 +19,7 @@ class SettingActivity : BaseActivity() {
     @Inject
     lateinit var languageManager: LanguageManager
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as NewAngleApp).appComponent.inject(this)
+        (application as NewAngleApp).appComponent.activityComponent().create().inject(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_setting)

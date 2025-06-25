@@ -1,5 +1,6 @@
-package com.newangle.healthy.di
+package com.newangle.healthy.di.thirdparty
 
+import com.newangle.healthy.net.ApiService
 import com.newangle.healthy.net.LoggingInterceptor
 import dagger.Module
 import dagger.Provides
@@ -34,6 +35,8 @@ class NetWorkModule {
             .connectTimeout(20000, TimeUnit.MILLISECONDS)
             .build()
     }
+
+    @Provides fun provideApiService(retrofit: Retrofit) : ApiService = retrofit.create(ApiService::class.java)
 
     companion object {
         private const val BASE_URL = "https://playlet.zonelian.com"

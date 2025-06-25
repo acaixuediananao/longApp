@@ -4,6 +4,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.newangle.healthy.bean.User
+import com.newangle.healthy.di.activity.ActivityComponent
 import com.newangle.healthy.login.LoginRepository
 import com.newangle.healthy.net.Response
 import com.orhanobut.logger.Logger
@@ -11,7 +12,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(app: NewAngleApp): AndroidViewModel(application = app) {
+class MainViewModel @Inject constructor(app: NewAngleApp, factory: ActivityComponent.Factory)
+    : AndroidViewModel(application = app) {
 
             @Inject
             lateinit var loginRepository: LoginRepository
@@ -19,7 +21,7 @@ class MainViewModel @Inject constructor(app: NewAngleApp): AndroidViewModel(appl
             val state = _state.asLiveData()
 
             init {
-                app.appComponent.inject(this)
+                factory.create().inject(this)
             }
 
             fun  login(userNumber:Long, userName:String) {
