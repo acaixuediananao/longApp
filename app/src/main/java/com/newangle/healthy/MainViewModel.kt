@@ -22,7 +22,6 @@ class MainViewModel @Inject constructor(app: NewAngleApp, activityComponent: Act
 
             init {
                 activityComponent.inject(this)
-                Logger.e("haha")
             }
 
             fun  login(userNumber:Long, userName:String) {

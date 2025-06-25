@@ -13,6 +13,5 @@ class SettingViewModel @Inject constructor(application:NewAngleApp, activityComp
         lateinit var loginRepository: LoginRepository
         init {
             activityComponent.inject(this)
-            Logger.e("is null")
         }
 }

@@ -48,28 +48,28 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
 
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+    implementation(libs.androidx.lifecycle.runtime.compose)
     // MVVM架构组件
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0") // ViewModel
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.navigation:navigation-compose:2.7.5")
+    implementation(libs.androidx.lifecycle.viewmodel.compose) // ViewModel
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     // 网络请求（Retrofit + Kotlin序列化）
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0") // 日志拦截器
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp3.logging.interceptor) // 日志拦截器
     // 依赖注入（Hilt）
-    implementation("com.google.dagger:hilt-android:2.51")
-    kapt("com.google.dagger:hilt-compiler:2.51")
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0") // Compose导航集成
+    implementation(libs.dagger.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.dagger.hilt.navigation.compose) // Compose导航集成
 
     // 本地存储（Room）
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
-    implementation ("com.tencent:mmkv:2.2.2")
+    implementation(libs.room.runtime)
+    implementation(libs.room.runtime.ktx)
+    kapt(libs.androidx.room.compiler)
+    implementation (libs.mmkv)
 
     // 辅助工具
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0") // 协程
-    implementation("androidx.datastore:datastore-preferences:1.1.0") // 轻量数据存储
-    implementation ("com.orhanobut:logger:2.2.0")
+    implementation(libs.coroutines.core) // 协程
+    implementation(libs.datastore.preferences) // 轻量数据存储
+    implementation (libs.logger)
 }
