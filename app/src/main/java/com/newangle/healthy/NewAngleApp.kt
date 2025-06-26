@@ -4,8 +4,6 @@ import android.app.Application
 import com.newangle.healthy.di.AppComponent
 import com.newangle.healthy.di.DaggerAppComponent
 import com.newangle.healthy.base.logger.LoggerConfig
-import com.tencent.mmkv.MMKV
-
 class NewAngleApp : Application() {
 
     private val mLoggerUtil by lazy {
@@ -18,7 +16,6 @@ class NewAngleApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val rootDir = MMKV.initialize(this)
-        mLoggerUtil.i("mmkv root: %s", rootDir)
+        mLoggerUtil.i("app start")
     }
 }

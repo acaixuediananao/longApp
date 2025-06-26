@@ -66,10 +66,9 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.runtime.ktx)
     kapt(libs.androidx.room.compiler)
-    implementation (libs.mmkv)
+    implementation(libs.datastore.preferences) // 轻量数据存储
 
     // 辅助工具
     implementation(libs.coroutines.core) // 协程
-    implementation(libs.datastore.preferences) // 轻量数据存储
     implementation (libs.logger)
 }

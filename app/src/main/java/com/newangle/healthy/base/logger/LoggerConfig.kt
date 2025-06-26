@@ -36,7 +36,7 @@ class LoggerConfig(context: Context) {
         return externalFilesDir?.path +File.separatorChar + FILE_NAME + File.separatorChar + format
     }
 
-    fun i (message:String, vararg : Any?){
+    fun i (message:String, vararg : Any? = ""){
         Logger.i(message, vararg)
     }
 
