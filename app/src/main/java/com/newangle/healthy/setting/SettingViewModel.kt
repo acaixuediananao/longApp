@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.newangle.healthy.di.activity.ActivityComponent
 import com.newangle.healthy.login.LoginRepository
 import com.newangle.healthy.persistence.DataStoreRepository
+import com.newangle.healthy.persistence.db.AppDatabase
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,12 +15,16 @@ class SettingViewModel @Inject constructor(application: Application, activityCom
     : AndroidViewModel(application) {
         @Inject
         lateinit var dataStoreRepository : DataStoreRepository
+        @Inject
+        lateinit var appDatabase: AppDatabase
         init {
             activityComponent.inject(this)
             viewModelScope.launch {
                 dataStoreRepository.key.collect {
                     k ->
                     Logger.i("weixiaolong" + k.toString())
+                    var allUsers = appDatabase.userDao().getAllUsers()
+                    Logger.i("weixiaolong ${allUsers.size} and ${allUsers.get(0).androidId}")
                 }
             }
         }

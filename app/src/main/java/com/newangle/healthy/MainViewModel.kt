@@ -9,6 +9,7 @@ import com.newangle.healthy.di.activity.ActivityComponent
 import com.newangle.healthy.login.LoginRepository
 import com.newangle.healthy.net.Response
 import com.newangle.healthy.persistence.DataStoreRepository
+import com.newangle.healthy.persistence.db.AppDatabase
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -21,6 +22,8 @@ class MainViewModel @Inject constructor(application: Application, activityCompon
             lateinit var loginRepository: LoginRepository
             @Inject
             lateinit var dataStoreRepository: DataStoreRepository
+            @Inject
+            lateinit var appDatabase: AppDatabase
             private var _state = MutableStateFlow<State>(State.NOT_BEGIN)
             val state = _state.asLiveData()
 
@@ -36,6 +39,7 @@ class MainViewModel @Inject constructor(application: Application, activityCompon
                     if (result.code == 200) {
                         _state.value = State.SUCCESS(result.data)
                         dataStoreRepository.save(1000)
+                        appDatabase.userDao().insertUser(result.data)
                     } else {
                         _state.value = State.FAILED(result.code, result.msg)
                     }
