@@ -31,15 +31,15 @@ class MainViewModel @Inject constructor(application: Application, activityCompon
                 activityComponent.inject(this)
             }
 
-            fun  login(userNumber:Long, userName:String) {
+            fun  login(phoneNumber:String, password:String) {
                 _state.value = State.LOADING
                 viewModelScope.launch {
                     Logger.i("main activity thread 1 %s", Thread.currentThread().name)
-                    val result : Response<User> = loginRepository.login(123456,"zhangsan")
+                    val result : Response<Any> = loginRepository.login(phoneNumber,password)
                     if (result.code == 200) {
-                        _state.value = State.SUCCESS(result.data)
+                        _state.value = State.SUCCESS
                         dataStoreRepository.save(1000)
-                        appDatabase.userDao().insertUser(result.data)
+//                        appDatabase.userDao().insertUser(result.data)
                     } else {
                         _state.value = State.FAILED(result.code, result.msg)
                     }
@@ -51,7 +51,7 @@ class MainViewModel @Inject constructor(application: Application, activityCompon
     sealed interface State {
         object NOT_BEGIN : State
         object LOADING : State
-        data class SUCCESS(val user: User):State
+        object SUCCESS:State
         data class FAILED(val code : Int, val msg : String):State
     }
 }

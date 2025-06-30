@@ -24,7 +24,7 @@ class SettingViewModel @Inject constructor(application: Application, activityCom
                     k ->
                     Logger.i("weixiaolong" + k.toString())
                     var allUsers = appDatabase.userDao().getAllUsers()
-                    Logger.i("weixiaolong ${allUsers.size} and ${allUsers.get(0).androidId}")
+                    Logger.i("weixiaolong ${allUsers.size} and ${allUsers.get(0).userName}")
                 }
             }
         }

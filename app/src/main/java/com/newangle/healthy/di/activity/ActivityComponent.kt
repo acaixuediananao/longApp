@@ -2,6 +2,10 @@ package com.newangle.healthy.di.activity
 
 import com.newangle.healthy.MainActivity
 import com.newangle.healthy.MainViewModel
+import com.newangle.healthy.login.LoginActivity
+import com.newangle.healthy.login.LoginViewModel
+import com.newangle.healthy.register.RegisterActivity
+import com.newangle.healthy.register.RegisterViewModel
 import com.newangle.healthy.setting.SettingActivity
 import com.newangle.healthy.setting.SettingViewModel
 import dagger.Subcomponent
@@ -19,4 +23,10 @@ interface ActivityComponent {
 
     fun inject(settingActivity: SettingActivity)
     fun inject(settingViewModel: SettingViewModel)
+
+    fun inject(loginActivity: LoginActivity)
+    fun inject(loginViewModel: LoginViewModel)
+
+    fun inject(registerActivity: RegisterActivity)
+    fun inject(registerViewModel: RegisterViewModel)
 }

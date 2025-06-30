@@ -12,6 +12,7 @@ import androidx.core.os.LocaleListCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.newangle.healthy.base.BaseActivity
+import com.newangle.healthy.login.LoginActivity
 import com.newangle.healthy.setting.SettingActivity
 import com.orhanobut.logger.Logger
 import javax.inject.Inject
@@ -41,14 +42,14 @@ class MainActivity : BaseActivity() {
                 MainViewModel.State.NOT_BEGIN -> mStateTv.setText("")
                 is MainViewModel.State.FAILED -> mStateTv.setText(it.msg)
                 MainViewModel.State.LOADING -> mStateTv.setText("loading.....")
-                is MainViewModel.State.SUCCESS -> mStateTv.setText(it.user.androidId)
+                is MainViewModel.State.SUCCESS -> mStateTv.setText("登录成功")
             }
         }
         findViewById<TextView>(R.id.next_page).setOnClickListener {
-            mViewModel.login(123456L, "")
+            mViewModel.login("15803216916", "123456")
         }
-        findViewById<TextView>(R.id.setting_page).setOnClickListener {
-            val intent = Intent(this, SettingActivity::class.java)
+        findViewById<TextView>(R.id.login_page).setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }

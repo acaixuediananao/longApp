@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
+    tools:context=".register.RegisterActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="25dp"
+        android:text="@string/register"
+        android:textSize="26dp"
+        android:gravity="center"/>
+
+
+    <LinearLayout
+        android:id="@id/username_container"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:layout_constraintTop_toBottomOf="@id/register"
+        android:layout_marginTop="36dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:gravity="end"
+            android:textColor="@color/ff999999"
+            android:textSize="17dp"/>
+
+        <EditText
+            android:id="@+id/edit_user_name"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/info_edit_bg"
+            android:layout_marginStart="15dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@id/gender_container"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:layout_constraintTop_toBottomOf="@id/username_container"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/gender"
+            android:textColor="@color/ff999999"
+            android:textSize="17dp"
+            android:gravity="end"/>
+
+        <Spinner
+            android:id="@id/edit_user_gender"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/info_edit_bg"
+            android:layout_marginStart="15dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@id/birthday_container"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:layout_constraintTop_toBottomOf="@id/gender_container"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/telephone"
+            android:textColor="@color/ff999999"
+            android:textSize="17dp"
+            android:gravity="end"/>
+
+        <EditText
+            android:id="@id/edit_user_phone"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/info_edit_bg"
+            android:layout_marginStart="15dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@id/telephone_container"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:layout_constraintTop_toBottomOf="@id/birthday_container"
+        android:layout_marginTop="36dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/birthday"
+            android:textColor="@color/ff999999"
+            android:textSize="17dp"
+            android:gravity="end"/>
+
+        <EditText
+            android:id="@id/edit_user_birthday"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/info_edit_bg"
+            android:layout_marginStart="15dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@id/email_container"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:layout_constraintTop_toBottomOf="@id/telephone_container"
+        android:layout_marginTop="36dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textColor="@color/ff999999"
+            android:textSize="17dp"
+            android:gravity="end"/>
+
+        <EditText
+            android:id="@id/edit_user_email"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/info_edit_bg"
+            android:layout_marginStart="15dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@id/nurse_container"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        app:layout_constraintTop_toBottomOf="@id/email_container"
+        android:layout_marginTop="36dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nurse"
+            android:textColor="@color/ff999999"
+            android:textSize="17dp"
+            android:gravity="end"/>
+
+        <EditText
+            android:id="@id/edit_user_nurse"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/info_edit_bg"
+            android:layout_marginStart="15dp"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/confirm_bg"
+        app:layout_constraintTop_toBottomOf="@id/nurse_container"
+        android:layout_marginTop="56dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        android:text="@string/register"
+        android:gravity="center"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">NewAngleHealthApp</string>
     <string name="title">C\'est le titre</string>
     <string name="hello">Bonjour le monde</string>
     <string name="setting_page">Page des paramètres</string>
+    <string name="register">register</string>
+    <string name="username">username</string>
+    <string name="gender">gender</string>
+    <string name="telephone">telephone</string>
+    <string name="birthday">birthday</string>
+    <string name="email">email</string>
+    <string name="nurse">nurse</string>
+    <string name="login_page">login</string>
+    <string name="password">password</string>
 </resources>

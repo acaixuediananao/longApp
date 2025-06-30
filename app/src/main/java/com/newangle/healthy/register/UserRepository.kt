@@ -1,4 +1,4 @@
-package com.newangle.healthy.login
+package com.newangle.healthy.register
 
 import com.newangle.healthy.bean.User
 import com.newangle.healthy.di.repository.RepositoryComponent
@@ -11,17 +11,16 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LoginRepository @Inject constructor(factory: RepositoryComponent.Factory) {
+class UserRepository @Inject constructor(factory: RepositoryComponent.Factory) {
     @Inject
     lateinit var apiService: ApiService
+
     init {
         factory.create().inject(this)
     }
 
-    suspend fun login(phoneNumber : String, password : String): Response<Any> =
+    suspend fun register(user: User): Response<User> =
         withContext(Dispatchers.IO) {
-            Logger.i("main activity thread 2 %s", Thread.currentThread().name)
-            apiService.login(phoneNumber, password)
+            apiService.register(user)
         }
-
 }

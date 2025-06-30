@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="setting_page" type="id"/>
+    <item name="register" type="id"/>
+    <item name="username_container" type="id"/>
+    <item name="gender_container" type="id"/>
+    <item name="birthday_container" type="id"/>
+    <item name="telephone_container" type="id"/>
+    <item name="email_container" type="id"/>
+    <item name="nurse_container" type="id"/>
+    <item name="login_page" type="id"/>
+    <item name="login_page_title" type="id"/>
+    <item name="password_container" type="id"/>
+    <item name="phone" type="id"/>
+    <item name="password" type="id"/>
+    <item name="login" type="id"/>
+    <item name="edit_user_name" type="id"/>
+    <item name="edit_user_gender" type="id"/>
+    <item name="edit_user_phone" type="id"/>
+    <item name="edit_user_birthday" type="id"/>
+    <item name="edit_user_email" type="id"/>
+    <item name="edit_user_nurse" type="id"/>
+    <item name="confirm" type="id"/>
 </resources>
