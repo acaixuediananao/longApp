@@ -21,4 +21,7 @@
     <item name="edit_user_email" type="id"/>
     <item name="edit_user_nurse" type="id"/>
     <item name="confirm" type="id"/>
+    <item name="select_date_title" type="id"/>
+    <item name="cancel" type="id"/>
+    <item name="date_picker" type="id"/>
 </resources>

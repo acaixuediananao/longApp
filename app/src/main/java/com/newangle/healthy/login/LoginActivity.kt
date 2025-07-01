@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,6 +17,7 @@ import com.newangle.healthy.base.logger.LoggerConfig
 import com.newangle.healthy.register.RegisterActivity
 import com.orhanobut.logger.Logger
 import javax.inject.Inject
+import kotlin.time.Duration
 
 class LoginActivity : AppCompatActivity() {
 
@@ -44,8 +46,10 @@ class LoginActivity : AppCompatActivity() {
                     Logger.i("login showloading")
                 is LoginViewModel.State.SUCCESS ->
                     jumpRegisterPage()
-                is LoginViewModel.State.FAILED ->
-                    Logger.e("login failed")
+                is LoginViewModel.State.FAILED -> {
+                    val fAILED = it as LoginViewModel.State.FAILED
+                    Toast.makeText(this, fAILED.msg, Toast.LENGTH_LONG).show()
+                }
                 else -> {
 
                 }

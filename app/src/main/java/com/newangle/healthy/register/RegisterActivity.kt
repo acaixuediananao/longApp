@@ -1,9 +1,12 @@
 package com.newangle.healthy.register
 
+import android.app.DatePickerDialog
+import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
@@ -16,10 +19,12 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.datepicker.MaterialStyledDatePickerDialog
 import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseActivity
+import com.newangle.healthy.common.DataPickerDialog
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -56,11 +61,13 @@ class RegisterActivity : BaseActivity() {
         val userNameEditText = findViewById<EditText>(R.id.edit_user_name)
         val userPhoneEditText = findViewById<EditText>(R.id.edit_user_phone)
         val spinner = findViewById<Spinner>(R.id.edit_user_gender)
-        val birthdayEditText = findViewById<EditText>(R.id.edit_user_birthday)
+        val birthdayEditText = findViewById<TextView>(R.id.edit_user_birthday)
         val emailEditText = findViewById<EditText>(R.id.edit_user_email)
         val nurseEditText = findViewById<EditText>(R.id.edit_user_nurse)
         val confirm = findViewById<TextView>(R.id.confirm)
+        val dialog : DatePickerDialog = DatePickerDialog(this)
         userNameEditText.doOnTextChanged { text, _, _, _ ->
+            dialog.show()
             mViewModel.onUserNameChanged(text.toString())
         }
         userPhoneEditText.doOnTextChanged { text, _, _, _ ->
@@ -88,8 +95,8 @@ class RegisterActivity : BaseActivity() {
                 mViewModel.onGenderSelected("")
             }
         }
-        birthdayEditText.doOnTextChanged { text, _, _, _ ->
-            mViewModel.onBirthdayChanged(text.toString())
+        birthdayEditText.setOnClickListener { v ->
+            showDatePickerDialog()
         }
         emailEditText.doOnTextChanged { text, _, _, _ ->
             mViewModel.onEmailChanged(text.toString())
@@ -100,5 +107,14 @@ class RegisterActivity : BaseActivity() {
         confirm.setOnClickListener {
             mViewModel.register()
         }
+    }
+
+    private fun showDatePickerDialog() {
+        DataPickerDialog(this){
+            year,month,day ->
+            Logger.e("weixiaolong ---- $year $month $day")
+
+        }.show()
+
     }
 }

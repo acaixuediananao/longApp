@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="700dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/ff2b2c30_bg_8_corner_shape"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@id/select_date_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:text="选择用户生日"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <DatePicker
+        android:id="@id/date_picker"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="15dp"
+        style="@style/CustomDatePickerStyle"
+        android:theme="@style/CustomDatePickerStyle"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"
+        android:calendarTextColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select_date_title"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/date_picker">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="36dp"
+            android:text="取消"
+            android:textSize="16dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/ff2b2c30_bg_8_corner_shape"/>
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="36dp"
+            android:text="确定"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ff98f3c8_bg_8_corner_shape"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
