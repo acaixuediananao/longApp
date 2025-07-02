@@ -103,8 +103,12 @@ class RegisterViewModel @Inject constructor(
                 _validateResult.value = Event("用户名不能为空")
                 false
             }
-            state.userPhone.isBlank() -> {
-                _validateResult.value = Event("手机号不能为空")
+            state.gender.isBlank() -> {
+                _validateResult.value = Event("请选择性别")
+                false
+            }
+            state.email.isBlank() -> {
+                _validateResult.value = Event("请输入您的邮箱")
                 false
             }
             state.birthday == null -> {
