@@ -1,32 +1,23 @@
 package com.newangle.healthy.register
 
 import android.app.DatePickerDialog
-import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.graphics.evaluateY
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doOnTextChanged
-import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
-import com.google.android.material.datepicker.MaterialStyledDatePickerDialog
-import com.google.android.material.navigation.NavigationBarView.OnItemSelectedListener
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseActivity
-import com.newangle.healthy.common.DataPickerDialog
+import com.newangle.healthy.common.DatePickerDialog
 import com.orhanobut.logger.Logger
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class RegisterActivity : BaseActivity() {
@@ -110,7 +101,7 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun showDatePickerDialog() {
-        DataPickerDialog(this){
+        DatePickerDialog(this){
             year,month,day ->
             Logger.e("weixiaolong ---- $year $month $day")
 

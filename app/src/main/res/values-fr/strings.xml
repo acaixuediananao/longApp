@@ -13,4 +13,6 @@
     <string name="nurse">nurse</string>
     <string name="login_page">login</string>
     <string name="password">password</string>
+    <string name="cancel">cancel</string>
+    <string name="confirm">confirm</string>
 </resources>

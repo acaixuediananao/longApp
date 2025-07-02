@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="700dp"
     android:layout_height="wrap_content"
+    android:paddingBottom="30dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/ff2b2c30_bg_8_corner_shape"
     tools:ignore="MissingDefaultResource">
@@ -42,9 +43,10 @@
         app:layout_constraintTop_toBottomOf="@id/date_picker">
 
         <TextView
+            android:id="@id/cancel"
             android:layout_width="80dp"
             android:layout_height="36dp"
-            android:text="取消"
+            android:text="@string/cancel"
             android:textSize="16dp"
             android:textColor="@color/white"
             android:gravity="center"
@@ -52,9 +54,10 @@
             android:background="@drawable/ff2b2c30_bg_8_corner_shape"/>
 
         <TextView
+            android:id="@id/confirm"
             android:layout_width="80dp"
             android:layout_height="36dp"
-            android:text="确定"
+            android:text="@string/confirm"
             android:textSize="16dp"
             android:gravity="center"
             android:textColor="@color/white"
