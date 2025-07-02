@@ -1,6 +1,5 @@
 package com.newangle.healthy.register
 
-import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -56,9 +55,7 @@ class RegisterActivity : BaseActivity() {
         val emailEditText = findViewById<EditText>(R.id.edit_user_email)
         val nurseEditText = findViewById<EditText>(R.id.edit_user_nurse)
         val confirm = findViewById<TextView>(R.id.confirm)
-        val dialog : DatePickerDialog = DatePickerDialog(this)
         userNameEditText.doOnTextChanged { text, _, _, _ ->
-            dialog.show()
             mViewModel.onUserNameChanged(text.toString())
         }
         userPhoneEditText.doOnTextChanged { text, _, _, _ ->
