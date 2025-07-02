@@ -11,13 +11,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class UserRepository @Inject constructor(factory: RepositoryComponent.Factory) {
-    @Inject
-    lateinit var apiService: ApiService
-
-    init {
-        factory.create().inject(this)
-    }
+class UserRepository @Inject constructor(private val apiService: ApiService) {
 
     suspend fun register(user: User): Response<User> =
         withContext(Dispatchers.IO) {

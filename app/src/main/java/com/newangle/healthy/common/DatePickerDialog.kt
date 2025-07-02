@@ -15,14 +15,21 @@ import java.util.Calendar
 import java.util.LinkedList
 
 class DatePickerDialog(
+    time: Calendar = Calendar.getInstance(),
     context: Context,
-    private val onDateSelected: (year: Int, month: Int, day: Int) -> Unit
+    private val onDateSelected: (Int, Int, Int) -> Unit
 ) : Dialog(context, R.style.CustomDatePickerDialog) {
 
     private lateinit var mBinding: DatePickerDialogBinding
-    private var mSelectYear = Calendar.getInstance().get(Calendar.YEAR)
-    private var mSelectMonth = Calendar.getInstance().get(Calendar.MONTH)
-    private var mSelectDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+    private var mSelectYear = 0
+    private var mSelectMonth = 0
+    private var mSelectDay = 0
+
+    init {
+        mSelectYear = time.get(Calendar.YEAR)
+        mSelectMonth = time.get(Calendar.MONTH)
+        mSelectDay = time.get(Calendar.DAY_OF_MONTH)
+    }
 
     private val mInitListener = DatePicker.OnDateChangedListener { _, year, month, day ->
         mSelectYear = year
@@ -42,7 +49,7 @@ class DatePickerDialog(
         with(mBinding) {
             cancel.setOnClickListener { dismiss() }
             confirm.setOnClickListener {
-                onDateSelected(mSelectYear, mSelectMonth + 1, mSelectDay)
+                onDateSelected(mSelectYear, mSelectMonth, mSelectDay)
                 dismiss()
             }
             datePicker.init(mSelectYear, mSelectMonth, mSelectDay, mInitListener)

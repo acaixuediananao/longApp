@@ -4,124 +4,136 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.newangle.healthy.base.Event
 import com.newangle.healthy.bean.User
 import com.newangle.healthy.di.activity.ActivityComponent
 import com.newangle.healthy.login.LoginViewModel
 import com.newangle.healthy.net.Response
-import com.newangle.healthy.persistence.DataStoreRepository
 import com.newangle.healthy.persistence.db.AppDatabase
 import com.orhanobut.logger.Logger
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.util.Calendar
 import javax.inject.Inject
 
 class RegisterViewModel @Inject constructor(
-    application: Application, activityComponent: ActivityComponent) : AndroidViewModel(application) {
-        @Inject
-        lateinit var userRepository: UserRepository
+    application: Application, activityComponent: ActivityComponent
+) : AndroidViewModel(application) {
+    @Inject
+    lateinit var userRepository: UserRepository
+
     @Inject
     lateinit var appDatabase: AppDatabase
 
-        init {
-            activityComponent.inject(this)
-        }
+    init {
+        activityComponent.inject(this)
+    }
 
-        private val _validateResult = MutableLiveData<String>()
-        val userNameError : LiveData<String>
-            get() = _validateResult
+    private val _uiState = MutableLiveData(RegisterUiState())
+    val uiState: LiveData<RegisterUiState>
+        get() = _uiState
 
-        private val _userName = MutableLiveData<String>()
-        val userName : LiveData<String>
-            get() = _userName
+    private val _validateResult = MutableStateFlow<Event<String>?>(null)
+    val validateResult = _validateResult.asLiveData()
 
-        private val _userPhone = MutableLiveData<String>()
-        val userPhone : LiveData<String>
-            get() = _userPhone
 
-        private val _gender = MutableLiveData<String>()
-        val gender : LiveData<String>
-            get() = _gender
+    private val _registerResult = MutableLiveData<LoginViewModel.State>()
+    val registerResultState: LiveData<LoginViewModel.State>
+        get() = _registerResult
 
-        private val _birthday = MutableLiveData<String>()
-        val birthday : LiveData<String>
-            get() = _birthday
+    fun onUserNameChanged(userName: String) {
+        Logger.i("onUserNameChanged: $userName")
+        _uiState.value = _uiState.value?.copy(userName = userName)
+    }
 
-        private val _email = MutableLiveData<String>()
-        val email : LiveData<String>
-            get() = _email
+    fun onUserPhoneChanged(userPhone: String) {
+        Logger.i("onUserPhoneChanged: $userPhone")
+        _uiState.value = _uiState.value?.copy(userPhone = userPhone)
+    }
 
-        private val _nurse = MutableLiveData<String>()
-        val nurse : LiveData<String>
-            get() = _nurse
+    fun onGenderSelected(gender: String) {
+        Logger.i("onGenderSelected: $gender")
+        _uiState.value = _uiState.value?.copy(gender = gender)
+    }
 
-        init {
-            activityComponent.inject(this)
-        }
+    fun onBirthdayChanged(year: Int, month: Int, day: Int) {
+        Logger.i("onBirthdayChanged: $year month is $month day is $day")
+        CALENDER.apply { set(year, month, day) }
+        _uiState.value = _uiState.value?.copy(birthday = CALENDER)
+    }
 
-        private val _registerResult = MutableLiveData<LoginViewModel.State>()
-        val registerResultState : LiveData<LoginViewModel.State>
-            get() = _registerResult
+    fun onEmailChanged(email: String) {
+        Logger.i("onEmailChanged: $email")
+        _uiState.value = _uiState.value?.copy(email = email)
+    }
 
-        fun onUserNameChanged(userName: String) {
-            Logger.i("onUserNameChanged: $userName")
-            _userName.value = userName
-        }
+    fun onNurseChanged(nurse: String) {
+        Logger.i("onNurseChanged: $nurse")
+        _uiState.value = _uiState.value?.copy(nurse = nurse)
+    }
 
-        fun onUserPhoneChanged(userPhone: String) {
-            Logger.i("onUserPhoneChanged: $userPhone")
-            _userPhone.value = userPhone
-        }
+    fun register() {
+        if (!validateParams()) return
 
-        fun onGenderSelected(gender: String) {
-            Logger.i("onGenderSelected: $gender")
-            _gender.value = gender
-        }
-
-        fun onBirthdayChanged(string: String) {
-            Logger.i("onBirthdayChanged: $string")
-            _birthday.value = string
-        }
-
-        fun onEmailChanged(string: String) {
-            Logger.i("onEmailChanged: $string")
-            _email.value = string
-        }
-
-        fun onNurseChanged(string: String) {
-            Logger.i("onNurseChanged: $string")
-            _nurse.value = string
-        }
-
-        fun register() {
-            if (!validateParams()) {
-                return
+        viewModelScope.launch {
+            _registerResult.value = LoginViewModel.State.LOADING
+            val state = _uiState.value?:return@launch
+            val user = createUserFromState(state)
+            val result: Response<User> = userRepository.register(user)
+            if (result.code == 200) {
+                _registerResult.value = LoginViewModel.State.SUCCESS
+                appDatabase.userDao().insertUser(result.data)
+            } else {
+                _registerResult.value = LoginViewModel.State.FAILED(result.code, result.msg)
             }
-
-            viewModelScope.launch {
-                val user = User(gender = _gender.value,
-                    userName = _userName.value,
-                    birthday = _birthday.value,
-                    phoneNumber = _userPhone.value,
-                    email = _email.value,
-                    nurse = _nurse.value)
-                val result : Response<User> = userRepository.register(user)
-                if (result.code == 200) {
-                    _registerResult.value = LoginViewModel.State.SUCCESS
-                    appDatabase.userDao().insertUser(result.data)
-                } else {
-                    _registerResult.value = LoginViewModel.State.FAILED(result.code, result.msg)
-                }
-                Logger.i("register user result ", result)
-            }
-
-
+            Logger.i("register user result ", result)
         }
 
-        fun validateParams() : Boolean {
-            if (_userName.value?.isBlank() == true) {
-                _validateResult.value = "用户名不能为空"
-                return false
+
+    }
+
+    private fun validateParams(): Boolean {
+        val state = _uiState.value ?: return false
+
+        return when {
+            state.userName.isBlank() -> {
+                _validateResult.value = Event("用户名不能为空")
+                false
             }
-            return true
+            state.userPhone.isBlank() -> {
+                _validateResult.value = Event("手机号不能为空")
+                false
+            }
+            state.birthday == null -> {
+                _validateResult.value = Event("请选择生日")
+                false
+            }
+            else -> true
         }
+    }
+
+    private fun createUserFromState(state: RegisterUiState): User =
+        User(
+            gender = state.gender,
+            userName = state.userName,
+            birthday = state.birthday?.timeInMillis?.toString() ?: "",
+            phoneNumber = state.userPhone,
+            email = state.email,
+            nurse = state.nurse
+        )
+
+
+    data class RegisterUiState(val userName: String = "",
+                               val userPhone: String = "",
+                               val gender: String = "",
+                               val birthday: Calendar? = null,
+                               val email: String = "",
+                               val nurse: String = "")
+
+    companion object {
+        private val CALENDER = Calendar.getInstance()
+    }
 }

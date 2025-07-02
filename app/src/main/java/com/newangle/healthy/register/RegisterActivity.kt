@@ -4,22 +4,25 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doOnTextChanged
+import androidx.lifecycle.LifecycleCoroutineScope
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseActivity
 import com.newangle.healthy.common.DatePickerDialog
+import com.newangle.healthy.databinding.ActivityRegisterBinding
+import com.newangle.healthy.login.LoginViewModel
 import com.orhanobut.logger.Logger
+import java.util.Calendar
 import javax.inject.Inject
 
 class RegisterActivity : BaseActivity() {
+
+    private lateinit var mBinding : ActivityRegisterBinding;
     @Inject
     lateinit var mViewModel: RegisterViewModel
     private val activityComponent by lazy {
@@ -29,7 +32,8 @@ class RegisterActivity : BaseActivity() {
         activityComponent.inject(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_register)
+        mBinding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -40,35 +44,59 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun observeViewModel() {
-        mViewModel.userNameError.observe(this, ) { error ->
-            Logger.e("validate error $error")
-            Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+        mViewModel.validateResult.observe(this) { error ->
+            error?.getContentIfNotHandled()?.let {
+                Logger.e("validate error $it")
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+            }
+        }
+        mViewModel.uiState.observe(this) { state ->
+            state.birthday?.let {
+                mBinding.editUserBirthday.text = it.toDisplayFormat()
+            }
         }
 
+        mViewModel.registerResultState.observe(this) { state ->
+            when(state) {
+                is LoginViewModel.State.LOADING -> showLoading()
+                is LoginViewModel.State.SUCCESS -> Toast.makeText(this, "注册成功", Toast.LENGTH_LONG).show()
+                is LoginViewModel.State.FAILED -> Toast.makeText(this, state.msg, Toast.LENGTH_LONG).show()
+                else -> {
+
+                }
+            }
+        }
     }
 
     private fun setupView() {
-        val userNameEditText = findViewById<EditText>(R.id.edit_user_name)
-        val userPhoneEditText = findViewById<EditText>(R.id.edit_user_phone)
-        val spinner = findViewById<Spinner>(R.id.edit_user_gender)
-        val birthdayEditText = findViewById<TextView>(R.id.edit_user_birthday)
-        val emailEditText = findViewById<EditText>(R.id.edit_user_email)
-        val nurseEditText = findViewById<EditText>(R.id.edit_user_nurse)
-        val confirm = findViewById<TextView>(R.id.confirm)
-        userNameEditText.doOnTextChanged { text, _, _, _ ->
-            mViewModel.onUserNameChanged(text.toString())
+        with(mBinding) {
+            editUserName.doOnTextChanged { text, _, _, _ ->
+                mViewModel.onUserNameChanged(text.toString()) }
+            editUserPhone.doOnTextChanged { text, _, _, _ ->
+                mViewModel.onUserPhoneChanged(text.toString())
+            }
+            setupGender()
+            editUserBirthday.setOnClickListener { showDatePickerDialog() }
+            editUserEmail.doOnTextChanged { text, _, _, _ ->
+                mViewModel.onEmailChanged(text.toString())
+            }
+            editUserNurse.doOnTextChanged { text, _, _, _ ->
+                mViewModel.onNurseChanged(text.toString())
+            }
+            confirm.setOnClickListener { mViewModel.register() }
         }
-        userPhoneEditText.doOnTextChanged { text, _, _, _ ->
-            mViewModel.onUserPhoneChanged(text.toString())
-        }
+    }
+
+    private fun setupGender() {
         ArrayAdapter.createFromResource(
             this,
             R.array.genders,
-            android.R.layout.simple_spinner_item).also {
-                adapter -> adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                spinner.adapter = adapter
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            mBinding.editUserGender.adapter = adapter
         }
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        mBinding.editUserGender.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View,
@@ -83,26 +111,23 @@ class RegisterActivity : BaseActivity() {
                 mViewModel.onGenderSelected("")
             }
         }
-        birthdayEditText.setOnClickListener { v ->
-            showDatePickerDialog()
-        }
-        emailEditText.doOnTextChanged { text, _, _, _ ->
-            mViewModel.onEmailChanged(text.toString())
-        }
-        nurseEditText.doOnTextChanged { text, _, _, _ ->
-            mViewModel.onNurseChanged(text.toString())
-        }
-        confirm.setOnClickListener {
-            mViewModel.register()
-        }
     }
 
     private fun showDatePickerDialog() {
-        DatePickerDialog(this){
-            year,month,day ->
-            Logger.e("weixiaolong ---- $year $month $day")
+        val initialDate = mViewModel.uiState.value?.birthday?: Calendar.getInstance()
+        DatePickerDialog(initialDate, this) { year, month, day ->
+            mViewModel.onBirthdayChanged(year, month, day)
 
         }.show()
 
     }
+
+    private fun showLoading()  {
+
+    }
+
+    private fun Calendar.toDisplayFormat(): String {
+        return "${get(Calendar.YEAR)} - ${get(Calendar.MONTH) + 1} - ${get(Calendar.DAY_OF_MONTH)}"
+    }
+
 }
