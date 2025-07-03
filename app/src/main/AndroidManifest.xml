@@ -17,23 +17,30 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".pages.language.SelectLanguageActivity"
             android:exported="false" />
         <activity
-            android:name=".register.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".setting.SettingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".pages.welcome.WelcomeActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pages.register.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pages.setting.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"></activity>
 
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"

@@ -16,7 +16,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.math.exp
 
-val Context.dataStore by preferencesDataStore("")
+val Context.dataStore by preferencesDataStore("NewAngleApp")
 
 @Singleton
 class DataStoreRepository @Inject constructor(private val dataStore: DataStore<Preferences>) {
@@ -44,8 +44,21 @@ class DataStoreRepository @Inject constructor(private val dataStore: DataStore<P
         .map { prefs -> prefs[LOGIN_STATE] }
         .catch { ex -> Logger.e("login info error {${ex.message}}") }
 
+
+    suspend fun saveFirstLauncher(firstLaunch: Boolean) {
+        dataStore.edit { pres ->
+            pres[FIRST_LAUNCH] = firstLaunch
+        }
+    }
+
+    val firstLaunch =
+        dataStore.data
+            .map { prefs -> prefs[FIRST_LAUNCH] ?: true }
+            .catch { ex -> Logger.e("first launch error {${ex.message}}") }
+
     companion object {
         private val DARK_MODE = intPreferencesKey("dark_mode")
         private val LOGIN_STATE = booleanPreferencesKey("has_login")
+        private val FIRST_LAUNCH = booleanPreferencesKey("first_launch")
     }
 }

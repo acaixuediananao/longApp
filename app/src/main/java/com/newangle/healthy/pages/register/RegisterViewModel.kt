@@ -1,4 +1,4 @@
-package com.newangle.healthy.register
+package com.newangle.healthy.pages.register
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -14,7 +14,6 @@ import com.newangle.healthy.net.Response
 import com.newangle.healthy.persistence.db.AppDatabase
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.util.Calendar
 import javax.inject.Inject

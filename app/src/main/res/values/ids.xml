@@ -24,4 +24,7 @@
     <item name="select_date_title" type="id"/>
     <item name="cancel" type="id"/>
     <item name="date_picker" type="id"/>
+    <item name="select_language_rv" type="id"/>
+    <item name="select_language_item_tv" type="id"/>
+    <item name="select_language_item_checked" type="id"/>
 </resources>

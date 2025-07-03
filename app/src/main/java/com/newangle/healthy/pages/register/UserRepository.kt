@@ -1,4 +1,4 @@
-package com.newangle.healthy.register
+package com.newangle.healthy.pages.register
 
 import com.newangle.healthy.bean.User
 import com.newangle.healthy.di.repository.RepositoryComponent

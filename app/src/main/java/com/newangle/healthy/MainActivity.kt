@@ -1,20 +1,15 @@
 package com.newangle.healthy
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContextCompat
-import androidx.core.os.LocaleListCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.newangle.healthy.base.BaseActivity
 import com.newangle.healthy.login.LoginActivity
-import com.newangle.healthy.setting.SettingActivity
 import com.orhanobut.logger.Logger
+import kotlinx.coroutines.handleCoroutineException
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {

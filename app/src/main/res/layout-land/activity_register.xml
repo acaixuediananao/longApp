@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:paddingStart="15dp"
     android:paddingEnd="15dp"
-    tools:context=".register.RegisterActivity"
+    tools:context=".pages.register.RegisterActivity"
     tools:ignore="MissingDefaultResource">
 
     <TextView

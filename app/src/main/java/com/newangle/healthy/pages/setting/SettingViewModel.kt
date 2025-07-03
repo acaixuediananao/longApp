@@ -1,4 +1,4 @@
-package com.newangle.healthy.setting
+package com.newangle.healthy.pages.setting
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

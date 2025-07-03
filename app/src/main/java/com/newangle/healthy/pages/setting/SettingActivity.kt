@@ -1,11 +1,8 @@
-package com.newangle.healthy.setting
+package com.newangle.healthy.pages.setting
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.os.LocaleListCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.newangle.healthy.NewAngleApp

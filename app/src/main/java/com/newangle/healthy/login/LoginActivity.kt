@@ -2,7 +2,6 @@ package com.newangle.healthy.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -13,11 +12,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doOnTextChanged
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
-import com.newangle.healthy.base.logger.LoggerConfig
-import com.newangle.healthy.register.RegisterActivity
+import com.newangle.healthy.pages.register.RegisterActivity
 import com.orhanobut.logger.Logger
 import javax.inject.Inject
-import kotlin.time.Duration
 
 class LoginActivity : AppCompatActivity() {
 

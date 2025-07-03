@@ -1,4 +1,4 @@
-package com.newangle.healthy.register
+package com.newangle.healthy.pages.register
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doOnTextChanged
-import androidx.lifecycle.LifecycleCoroutineScope
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseActivity
