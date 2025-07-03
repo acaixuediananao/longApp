@@ -27,4 +27,10 @@
     <item name="select_language_rv" type="id"/>
     <item name="select_language_item_tv" type="id"/>
     <item name="select_language_item_checked" type="id"/>
+    <item name="setting_page_back" type="id"/>
+    <item name="setting_radio_group" type="id"/>
+    <item name="device_info" type="id"/>
+    <item name="hardware_parameter" type="id"/>
+    <item name="about_device" type="id"/>
+    <item name="sub_setting_page_fragment_container" type="id"/>
 </resources>

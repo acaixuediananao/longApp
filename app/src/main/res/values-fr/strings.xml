@@ -15,4 +15,7 @@
     <string name="password">password</string>
     <string name="cancel">cancel</string>
     <string name="confirm">confirm</string>
+    <string name="device_info">Device Info</string>
+    <string name="hardware_parameter">Hardware Parameter</string>
+    <string name="about_device">About Device</string>
 </resources>

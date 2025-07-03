@@ -23,8 +23,8 @@ class SettingViewModel @Inject constructor(application: Application, activityCom
                 dataStoreRepository.key.collect {
                     k ->
                     Logger.i("weixiaolong" + k.toString())
-                    var allUsers = appDatabase.userDao().getAllUsers()
-                    Logger.i("weixiaolong ${allUsers.size} and ${allUsers.get(0).userName}")
+//                    var allUsers = appDatabase.userDao().getAllUsers()
+//                    Logger.i("weixiaolong ${allUsers.size} and ${allUsers.get(0).userName}")
                 }
             }
         }

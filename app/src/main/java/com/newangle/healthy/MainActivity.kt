@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.newangle.healthy.base.BaseActivity
 import com.newangle.healthy.login.LoginActivity
+import com.newangle.healthy.pages.setting.SettingActivity
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.handleCoroutineException
 import javax.inject.Inject
@@ -44,7 +45,7 @@ class MainActivity : BaseActivity() {
             mViewModel.login("15803216916", "123456")
         }
         findViewById<TextView>(R.id.login_page).setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
         }
     }

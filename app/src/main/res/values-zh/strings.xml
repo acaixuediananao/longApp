@@ -14,4 +14,7 @@
     <string name="password">密码</string>
     <string name="cancel">取消</string>
     <string name="confirm">确定</string>
+    <string name="device_info">仪器信息</string>
+    <string name="hardware_parameter">硬件参数</string>
+    <string name="about_device">关于设备</string>
 </resources>
