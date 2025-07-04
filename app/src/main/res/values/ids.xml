@@ -32,5 +32,5 @@
     <item name="device_info" type="id"/>
     <item name="hardware_parameter" type="id"/>
     <item name="about_device" type="id"/>
-    <item name="sub_setting_page_fragment_container" type="id"/>
+    <item name="sub_setting_page_vp" type="id"/>
 </resources>

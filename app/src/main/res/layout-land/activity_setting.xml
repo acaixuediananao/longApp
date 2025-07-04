@@ -39,9 +39,8 @@
                 android:drawablePadding="2dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                app:drawableStartCompat="@drawable/setting_device_info_icon"
-                android:button="@null"/>
+                android:textColor="@color/setting_page_tab_button_text_color"
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@id/hardware_parameter"
@@ -52,9 +51,7 @@
                 android:drawablePadding="2dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                app:drawableStartCompat="@drawable/setting_device_info_icon"
-                android:button="@null" />
+                android:textColor="@color/setting_page_tab_button_text_color" />
 
             <RadioButton
                 android:id="@id/about_device"
@@ -66,9 +63,7 @@
                 android:enabled="true"
                 android:gravity="center_vertical"
                 android:text="@string/about_device"
-                android:textColor="@color/black"
-                app:drawableStartCompat="@drawable/setting_device_info_icon"
-                android:button="@null" />
+                android:textColor="@color/setting_page_tab_button_text_color" />
         </RadioGroup>
 
 
@@ -76,7 +71,7 @@
     </LinearLayout>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@id/sub_setting_page_fragment_container"
+        android:id="@id/sub_setting_page_vp"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"/>

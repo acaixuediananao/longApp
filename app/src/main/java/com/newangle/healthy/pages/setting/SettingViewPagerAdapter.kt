@@ -12,5 +12,5 @@ class SettingViewPagerAdapter(
        return data[position]
     }
 
-    override fun getItemCount(): Int = 2
+    override fun getItemCount(): Int = data.size
 }

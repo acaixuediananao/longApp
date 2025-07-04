@@ -12,6 +12,7 @@ import com.newangle.healthy.base.language.LanguageManager
 import com.newangle.healthy.databinding.ActivitySettingBinding
 import com.newangle.healthy.pages.about.AboutDeviceFragment
 import com.newangle.healthy.pages.info.DeviceInfoFragment
+import com.newangle.healthy.pages.parameter.HardwareParameterFragment
 import javax.inject.Inject
 
 class SettingActivity : BaseActivity() {
@@ -26,15 +27,8 @@ class SettingActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         activityComponent.inject(this)
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         mBinding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
         setUpViews()
     }
 
@@ -45,14 +39,20 @@ class SettingActivity : BaseActivity() {
             }
             settingRadioGroup.check(R.id.device_info)
             settingRadioGroup.setOnCheckedChangeListener { group, checkedId ->
-                if (checkedId == R.id.device_info) {
-                    subSettingPageFragmentContainer.currentItem = 0
-                } else if (checkedId == R.id.about_device) {
-                    subSettingPageFragmentContainer.currentItem = 1
+                when(checkedId) {
+                    R.id.device_info -> subSettingPageVp.setCurrentItem(0, false)
+                    R.id.hardware_parameter -> subSettingPageVp.setCurrentItem(1, false)
+                    R.id.about_device -> subSettingPageVp.setCurrentItem(2, false)
                 }
             }
-            val data = listOf<BaseFragment>(DeviceInfoFragment(), AboutDeviceFragment())
-            subSettingPageFragmentContainer.adapter = SettingViewPagerAdapter(data, this@SettingActivity)
+            deviceInfo.setButtonDrawable(R.drawable.setting_device_info_icon)
+            deviceInfo.compoundDrawablePadding = 1000
+            hardwareParameter.setButtonDrawable(R.drawable.setting_device_info_icon)
+            aboutDevice.setButtonDrawable(R.drawable.setting_device_info_icon)
+
+            subSettingPageVp.setUserInputEnabled(false)
+            val data = listOf<BaseFragment>(DeviceInfoFragment(), HardwareParameterFragment(), AboutDeviceFragment())
+            subSettingPageVp.adapter = SettingViewPagerAdapter(data, this@SettingActivity)
 
         }
     }
