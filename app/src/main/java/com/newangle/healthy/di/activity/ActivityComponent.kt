@@ -1,9 +1,11 @@
 package com.newangle.healthy.di.activity
 
-import com.newangle.healthy.MainActivity
-import com.newangle.healthy.MainViewModel
+import com.newangle.healthy.pages.main.MainActivity
+import com.newangle.healthy.pages.main.MainViewModel
 import com.newangle.healthy.login.LoginActivity
 import com.newangle.healthy.login.LoginViewModel
+import com.newangle.healthy.pages.home.HomeActivity
+import com.newangle.healthy.pages.home.HomeViewModel
 import com.newangle.healthy.pages.language.SelectLanguageActivity
 import com.newangle.healthy.pages.register.RegisterActivity
 import com.newangle.healthy.pages.register.RegisterViewModel
@@ -35,4 +37,7 @@ interface ActivityComponent {
     fun inject(registerViewModel: RegisterViewModel)
 
     fun inject(selectLanguageActivity: SelectLanguageActivity)
+
+    fun inject(homeActivity: HomeActivity)
+    fun inject(homeViewModel: HomeViewModel)
 }

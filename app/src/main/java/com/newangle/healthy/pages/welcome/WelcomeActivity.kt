@@ -13,10 +13,12 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.newangle.healthy.MainActivity
+import com.newangle.healthy.pages.main.MainActivity
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
 import com.newangle.healthy.pages.language.SelectLanguageActivity
+import com.newangle.healthy.pages.language.SelectLanguageActivity.Companion.FROM_KEY
+import com.newangle.healthy.pages.language.SelectLanguageActivity.Companion.FROM_LAUNCH
 import com.newangle.healthy.persistence.DataStoreRepository
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.flow.take
@@ -50,7 +52,7 @@ class WelcomeActivity : AppCompatActivity() {
                     .take(1)
                     .collect {
                         Logger.i("first launch is ${it}")
-                        dataStoreRepository.saveFirstLauncher(false)
+//                        dataStoreRepository.saveFirstLauncher(false)
                         handler.postDelayed({
                             startNexPage(it)
                         }, 5000)
@@ -61,7 +63,9 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun startNexPage(firstLaunch:Boolean) {
         val intent = if (firstLaunch) {
-            Intent(this@WelcomeActivity, SelectLanguageActivity::class.java)
+            Intent(
+                this@WelcomeActivity,
+                SelectLanguageActivity::class.java).putExtra(FROM_KEY, FROM_LAUNCH)
         } else {
             Intent(
                 this@WelcomeActivity,

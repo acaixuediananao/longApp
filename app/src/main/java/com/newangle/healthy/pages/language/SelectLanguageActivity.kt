@@ -2,16 +2,17 @@ package com.newangle.healthy.pages.language
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.SimpleAdapter
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.newangle.healthy.MainActivity
+import com.newangle.healthy.pages.main.MainActivity
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.base.BaseActivity
 import com.newangle.healthy.base.language.LanguageManager
 import com.newangle.healthy.databinding.ActivitySelectLanguageBinding
+import com.newangle.healthy.pages.password.PasswordActivity
 import java.util.Locale
 import javax.inject.Inject
 
@@ -28,26 +29,32 @@ class SelectLanguageActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         activityComponent.inject(this)
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         mBinding = ActivitySelectLanguageBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(mBinding.main) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
         setUpView()
     }
 
     fun setUpView() {
-        mBinding.selectLanguageRv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        val dataSource = listOf(Locale.ENGLISH, Locale.CHINESE, Locale.FRANCE, Locale.TAIWAN)
-        mBinding.selectLanguageRv.adapter =
-            SelectLanguageAdapter(dataSource) {
-            position ->
-                languageManager.switchLanguage(dataSource[position])
-                startActivity(Intent(this@SelectLanguageActivity, MainActivity::class.java))
-                finish()
+        with(mBinding) {
+            selectLanguageRv.apply {
+                layoutManager = LinearLayoutManager(this@SelectLanguageActivity, LinearLayoutManager.VERTICAL, false)
+                val dataSource = listOf(Locale.ENGLISH, Locale.CHINESE, Locale.FRANCE, Locale.TAIWAN)
+                adapter = SelectLanguageAdapter(dataSource) { position ->
+                    languageManager.switchLanguage(dataSource[position])
+                }
+            }
+            nextStep.setOnClickListener {
+                startActivity(Intent(this@SelectLanguageActivity, PasswordActivity::class.java))
+            }
+            nextStep.visibility = if(FROM_LAUNCH.equals(intent.getStringExtra(FROM_KEY)))
+                View.VISIBLE
+            else
+                View.GONE
         }
+    }
+
+    companion object {
+        const val FROM_KEY = "from_key"
+        const val FROM_LAUNCH = "from_launch"
     }
 }

@@ -1,10 +1,9 @@
-package com.newangle.healthy
+package com.newangle.healthy.pages.main
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.newangle.healthy.bean.User
 import com.newangle.healthy.di.activity.ActivityComponent
 import com.newangle.healthy.login.LoginRepository
 import com.newangle.healthy.net.Response
@@ -15,21 +14,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(application: Application, activityComponent: ActivityComponent)
+class MainViewModel @Inject constructor(application: Application,
+                                        val loginRepository: LoginRepository,
+                                        val dataStoreRepository: DataStoreRepository,
+                                        val appDatabase: AppDatabase)
     : AndroidViewModel(application) {
 
-            @Inject
-            lateinit var loginRepository: LoginRepository
-            @Inject
-            lateinit var dataStoreRepository: DataStoreRepository
-            @Inject
-            lateinit var appDatabase: AppDatabase
             private var _state = MutableStateFlow<State>(State.NOT_BEGIN)
             val state = _state.asLiveData()
 
-            init {
-                activityComponent.inject(this)
-            }
 
             fun  login(phoneNumber:String, password:String) {
                 _state.value = State.LOADING

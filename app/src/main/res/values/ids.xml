@@ -37,4 +37,5 @@
     <item name="device_info_item_card_container" type="id"/>
     <item name="device_info_item_card_display_name" type="id"/>
     <item name="device_info_item_card_display_value" type="id"/>
+    <item name="next_step" type="id"/>
 </resources>

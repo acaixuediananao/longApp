@@ -17,6 +17,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".pages.password.PasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pages.home.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".pages.language.SelectLanguageActivity"
             android:exported="false" />
         <activity
@@ -39,8 +45,8 @@
             android:name=".pages.setting.SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:name=".pages.main.MainActivity"
+            android:exported="false" />
 
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"

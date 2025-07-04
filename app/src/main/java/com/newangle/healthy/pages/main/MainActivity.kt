@@ -1,4 +1,4 @@
-package com.newangle.healthy
+package com.newangle.healthy.pages.main
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,11 +6,12 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.newangle.healthy.NewAngleApp
+import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseActivity
-import com.newangle.healthy.login.LoginActivity
+import com.newangle.healthy.pages.home.HomeActivity
 import com.newangle.healthy.pages.setting.SettingActivity
 import com.orhanobut.logger.Logger
-import kotlinx.coroutines.handleCoroutineException
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
