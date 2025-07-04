@@ -1,11 +1,11 @@
 package com.newangle.healthy.di.fragment
 
-import com.newangle.healthy.pages.about.AboutDeviceFragment
-import com.newangle.healthy.pages.about.AboutDeviceViewModel
-import com.newangle.healthy.pages.info.DeviceInfoFragment
-import com.newangle.healthy.pages.info.DeviceInfoViewModel
-import com.newangle.healthy.pages.parameter.HardwareParameterFragment
-import com.newangle.healthy.pages.parameter.HardwareParameterViewModel
+import com.newangle.healthy.pages.setting.about.AboutDeviceFragment
+import com.newangle.healthy.pages.setting.about.AboutDeviceViewModel
+import com.newangle.healthy.pages.setting.info.DeviceInfoFragment
+import com.newangle.healthy.pages.setting.info.DeviceInfoViewModel
+import com.newangle.healthy.pages.setting.parameter.HardwareParameterFragment
+import com.newangle.healthy.pages.setting.parameter.HardwareParameterViewModel
 import dagger.Subcomponent
 
 @FragmentScope

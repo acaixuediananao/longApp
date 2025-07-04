@@ -8,6 +8,7 @@ import androidx.room.Room
 import com.newangle.healthy.persistence.DataStoreRepository
 import com.newangle.healthy.persistence.dataStore
 import com.newangle.healthy.persistence.db.AppDatabase
+import com.newangle.healthy.persistence.db.MIGRATION_1_2
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,5 +29,6 @@ object DataStoreModule {
     @Singleton
     fun provideDatabase(application: Application) = Room
         .databaseBuilder(application.applicationContext, AppDatabase::class.java, "database-name")
+        .addMigrations(MIGRATION_1_2)
         .build()
 }

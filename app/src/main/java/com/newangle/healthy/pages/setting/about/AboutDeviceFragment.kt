@@ -1,4 +1,4 @@
-package com.newangle.healthy.pages.parameter
+package com.newangle.healthy.pages.setting.about
 
 import android.content.Context
 import android.os.Bundle
@@ -8,17 +8,13 @@ import android.view.ViewGroup
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.base.BaseFragment
 import com.newangle.healthy.databinding.AboutDeviceFragmentBinding
-import com.newangle.healthy.databinding.DeviceInfoFragmentBinding
-import com.newangle.healthy.databinding.HardwareParameterFragmentBinding
-import com.newangle.healthy.pages.about.AboutDeviceViewModel
-import com.newangle.healthy.pages.info.DeviceInfoViewModel
 import javax.inject.Inject
 
-class HardwareParameterFragment() : BaseFragment() {
+class AboutDeviceFragment() : BaseFragment() {
 
-    lateinit var mBinding: HardwareParameterFragmentBinding
+    lateinit var mBinding: AboutDeviceFragmentBinding
     @Inject
-    lateinit var hardwareParameterViewModel: HardwareParameterViewModel
+    lateinit var aboutDeviceViewModel: AboutDeviceViewModel
 
     private val fragmentComponent by lazy {
         (requireActivity().application as NewAngleApp).appComponent.fragmentComponent().create()
@@ -33,7 +29,7 @@ class HardwareParameterFragment() : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = HardwareParameterFragmentBinding.inflate(inflater, container, false)
+        mBinding = AboutDeviceFragmentBinding.inflate(inflater, container, false)
         return mBinding.root
     }
 }

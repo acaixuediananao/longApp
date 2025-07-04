@@ -33,4 +33,8 @@
     <item name="hardware_parameter" type="id"/>
     <item name="about_device" type="id"/>
     <item name="sub_setting_page_vp" type="id"/>
+    <item name="device_info_list_rv" type="id"/>
+    <item name="device_info_item_card_container" type="id"/>
+    <item name="device_info_item_card_display_name" type="id"/>
+    <item name="device_info_item_card_display_value" type="id"/>
 </resources>

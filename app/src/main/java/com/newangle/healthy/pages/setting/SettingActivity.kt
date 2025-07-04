@@ -1,18 +1,15 @@
 package com.newangle.healthy.pages.setting
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseActivity
 import com.newangle.healthy.base.BaseFragment
 import com.newangle.healthy.base.language.LanguageManager
 import com.newangle.healthy.databinding.ActivitySettingBinding
-import com.newangle.healthy.pages.about.AboutDeviceFragment
-import com.newangle.healthy.pages.info.DeviceInfoFragment
-import com.newangle.healthy.pages.parameter.HardwareParameterFragment
+import com.newangle.healthy.pages.setting.about.AboutDeviceFragment
+import com.newangle.healthy.pages.setting.info.DeviceInfoFragment
+import com.newangle.healthy.pages.setting.parameter.HardwareParameterFragment
 import javax.inject.Inject
 
 class SettingActivity : BaseActivity() {
