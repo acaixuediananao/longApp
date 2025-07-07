@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.newangle.healthy.base.Event
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.bean.User
 import com.newangle.healthy.di.activity.ActivityComponent
 import com.newangle.healthy.login.LoginViewModel
@@ -44,33 +45,33 @@ class RegisterViewModel @Inject constructor(
         get() = _registerResult
 
     fun onUserNameChanged(userName: String) {
-        Logger.i("onUserNameChanged: $userName")
+        LogUtils.i("onUserNameChanged: $userName")
         _uiState.value = _uiState.value?.copy(userName = userName)
     }
 
     fun onUserPhoneChanged(userPhone: String) {
-        Logger.i("onUserPhoneChanged: $userPhone")
+        LogUtils.i("onUserPhoneChanged: $userPhone")
         _uiState.value = _uiState.value?.copy(userPhone = userPhone)
     }
 
     fun onGenderSelected(gender: String) {
-        Logger.i("onGenderSelected: $gender")
+        LogUtils.i("onGenderSelected: $gender")
         _uiState.value = _uiState.value?.copy(gender = gender)
     }
 
     fun onBirthdayChanged(year: Int, month: Int, day: Int) {
-        Logger.i("onBirthdayChanged: $year month is $month day is $day")
+        LogUtils.i("onBirthdayChanged: $year month is $month day is $day")
         CALENDER.apply { set(year, month, day) }
         _uiState.value = _uiState.value?.copy(birthday = CALENDER)
     }
 
     fun onEmailChanged(email: String) {
-        Logger.i("onEmailChanged: $email")
+        LogUtils.i("onEmailChanged: $email")
         _uiState.value = _uiState.value?.copy(email = email)
     }
 
     fun onNurseChanged(nurse: String) {
-        Logger.i("onNurseChanged: $nurse")
+        LogUtils.i("onNurseChanged: $nurse")
         _uiState.value = _uiState.value?.copy(nurse = nurse)
     }
 
@@ -88,7 +89,7 @@ class RegisterViewModel @Inject constructor(
             } else {
                 _registerResult.value = LoginViewModel.State.FAILED(result.code, result.msg)
             }
-            Logger.i("register user result ", result)
+            LogUtils.i("register user result ", result.code.toString())
         }
 
 

@@ -12,6 +12,8 @@ import com.newangle.healthy.pages.register.RegisterViewModel
 import com.newangle.healthy.pages.setting.SettingActivity
 import com.newangle.healthy.pages.setting.SettingViewModel
 import com.newangle.healthy.pages.welcome.WelcomeActivity
+import com.newangle.healthy.pages.wifi.ConnectWifiActivity
+import com.newangle.healthy.pages.wifi.ConnectWifiViewModel
 import dagger.Subcomponent
 
 @ActivityScope
@@ -40,4 +42,7 @@ interface ActivityComponent {
 
     fun inject(homeActivity: HomeActivity)
     fun inject(homeViewModel: HomeViewModel)
+
+    fun inject(connectWifiActivity: ConnectWifiActivity)
+    fun inject(connectWifiViewModel: ConnectWifiViewModel)
 }

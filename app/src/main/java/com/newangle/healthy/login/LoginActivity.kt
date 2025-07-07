@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doOnTextChanged
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.pages.register.RegisterActivity
 import com.orhanobut.logger.Logger
 import javax.inject.Inject
@@ -40,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
             val value = loginViewModel.state.value
             when(value) {
                 is LoginViewModel.State.LOADING ->
-                    Logger.i("login showloading")
+                    LogUtils.i("login showloading")
                 is LoginViewModel.State.SUCCESS ->
                     jumpRegisterPage()
                 is LoginViewModel.State.FAILED -> {
@@ -57,11 +58,11 @@ class LoginActivity : AppCompatActivity() {
 
     fun setUpViews() {
         findViewById<EditText>(R.id.phone).doOnTextChanged { text, start, before, count ->
-            Logger.i("phone input is {$text}")
+            LogUtils.i("phone input is {$text}")
             phone = text.toString()
         }
         findViewById<EditText>(R.id.password).doOnTextChanged {text, start, before, count ->
-            Logger.i("password input is $text")
+            LogUtils.i("password input is $text")
             password = text.toString()
         }
        findViewById<TextView>(R.id.login).setOnClickListener {

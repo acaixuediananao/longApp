@@ -3,6 +3,7 @@ package com.newangle.healthy.pages.setting
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.di.activity.ActivityComponent
 import com.newangle.healthy.login.LoginRepository
 import com.newangle.healthy.persistence.DataStoreRepository
@@ -22,9 +23,9 @@ class SettingViewModel @Inject constructor(application: Application, activityCom
             viewModelScope.launch {
                 dataStoreRepository.key.collect {
                     k ->
-                    Logger.i("weixiaolong" + k.toString())
+                    LogUtils.i("weixiaolong" + k.toString())
 //                    var allUsers = appDatabase.userDao().getAllUsers()
-//                    Logger.i("weixiaolong ${allUsers.size} and ${allUsers.get(0).userName}")
+//                    LogUtils.i("weixiaolong ${allUsers.size} and ${allUsers.get(0).userName}")
                 }
             }
         }

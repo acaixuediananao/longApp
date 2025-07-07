@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.NumberPicker
 import com.newangle.healthy.R
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.databinding.DatePickerDialogBinding
 import com.orhanobut.logger.Logger
 import java.util.Calendar
@@ -63,7 +64,7 @@ class DatePickerDialog(
                 if (view is NumberPicker) view.removeDivider()
             }
         } catch (e: Exception) {
-            Logger.e(e, "Error hiding date picker dividers")
+            LogUtils.e("Error hiding date picker dividers", e.message?:e.stackTraceToString())
         }
     }
 

@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseActivity
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.pages.home.HomeActivity
 import com.newangle.healthy.pages.setting.SettingActivity
 import com.orhanobut.logger.Logger
@@ -34,7 +35,7 @@ class MainActivity : BaseActivity() {
         }
         mStateTv = findViewById<TextView>(R.id.state)
         mViewModel.state.observe(this) {
-            Logger.i("main activity thread ${Thread.currentThread().name}")
+            LogUtils.i("main activity thread ${Thread.currentThread().name}")
             when(it) {
                 MainViewModel.State.NOT_BEGIN -> mStateTv.setText("")
                 is MainViewModel.State.FAILED -> mStateTv.setText(it.msg)

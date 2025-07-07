@@ -25,9 +25,6 @@ class LoggerConfig(context: Context) {
 
 
         Logger.addLogAdapter(AndroidLogAdapter(prettyFormatStrategy))
-
-        val strategy = FileFormatStrategy.newBuilder().filePath(createFilePath(context)).build()
-        Logger.addLogAdapter(DiskLogAdapter(strategy))
     }
     private fun createFilePath(context: Context) : String {
         val externalFilesDir = context.getExternalFilesDir("")

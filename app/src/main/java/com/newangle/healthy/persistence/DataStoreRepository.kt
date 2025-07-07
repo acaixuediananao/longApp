@@ -9,6 +9,7 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.newangle.healthy.base.logger.LogUtils
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
@@ -30,7 +31,7 @@ class DataStoreRepository @Inject constructor(private val dataStore: DataStore<P
     val key = dataStore.data.map {
         prefs -> prefs[DARK_MODE] ?: -1
     }.catch {
-        ex -> Logger.e("read key error ${ex.message}")
+        ex -> LogUtils.e("read key error ${ex.message}")
     }
 
     suspend fun saveLogin(hasLogined:Boolean) {
@@ -42,7 +43,7 @@ class DataStoreRepository @Inject constructor(private val dataStore: DataStore<P
     val hasLogin =
         dataStore.data
         .map { prefs -> prefs[LOGIN_STATE] }
-        .catch { ex -> Logger.e("login info error {${ex.message}}") }
+        .catch { ex -> LogUtils.e("login info error {${ex.message}}") }
 
 
     suspend fun saveFirstLauncher(firstLaunch: Boolean) {
@@ -54,7 +55,7 @@ class DataStoreRepository @Inject constructor(private val dataStore: DataStore<P
     val firstLaunch =
         dataStore.data
             .map { prefs -> prefs[FIRST_LAUNCH] ?: true }
-            .catch { ex -> Logger.e("first launch error {${ex.message}}") }
+            .catch { ex -> LogUtils.e("first launch error {${ex.message}}") }
 
     companion object {
         private val DARK_MODE = intPreferencesKey("dark_mode")

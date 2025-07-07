@@ -16,9 +16,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.newangle.healthy.pages.main.MainActivity
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.pages.language.SelectLanguageActivity
 import com.newangle.healthy.pages.language.SelectLanguageActivity.Companion.FROM_KEY
 import com.newangle.healthy.pages.language.SelectLanguageActivity.Companion.FROM_LAUNCH
+import com.newangle.healthy.pages.wifi.ConnectWifiActivity
 import com.newangle.healthy.persistence.DataStoreRepository
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.flow.take
@@ -39,20 +41,14 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         activityComponent.inject(this)
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_welcome)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 dataStoreRepository.firstLaunch
                     .take(1)
                     .collect {
-                        Logger.i("first launch is ${it}")
-//                        dataStoreRepository.saveFirstLauncher(false)
+                        LogUtils.i("first launch is ${it}")
+                        dataStoreRepository.saveFirstLauncher(false)
                         handler.postDelayed({
                             startNexPage(it)
                         }, 5000)
@@ -65,7 +61,7 @@ class WelcomeActivity : AppCompatActivity() {
         val intent = if (firstLaunch) {
             Intent(
                 this@WelcomeActivity,
-                SelectLanguageActivity::class.java).putExtra(FROM_KEY, FROM_LAUNCH)
+                ConnectWifiActivity::class.java).putExtra(FROM_KEY, FROM_LAUNCH)
         } else {
             Intent(
                 this@WelcomeActivity,

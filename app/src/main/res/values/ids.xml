@@ -38,4 +38,6 @@
     <item name="device_info_item_card_display_name" type="id"/>
     <item name="device_info_item_card_display_value" type="id"/>
     <item name="next_step" type="id"/>
+    <item name="wifi_list_rv" type="id"/>
+    <item name="wifi_list_rv_item" type="id"/>
 </resources>

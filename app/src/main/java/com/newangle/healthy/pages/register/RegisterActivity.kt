@@ -12,6 +12,7 @@ import androidx.core.widget.doOnTextChanged
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseActivity
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.common.DatePickerDialog
 import com.newangle.healthy.databinding.ActivityRegisterBinding
 import com.newangle.healthy.login.LoginViewModel
@@ -45,7 +46,7 @@ class RegisterActivity : BaseActivity() {
     private fun observeViewModel() {
         mViewModel.validateResult.observe(this) { error ->
             error?.getContentIfNotHandled()?.let {
-                Logger.e("validate error $it")
+                LogUtils.e("validate error $it")
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             }
         }

@@ -1,5 +1,6 @@
 package com.newangle.healthy.login
 
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.bean.User
 import com.newangle.healthy.di.repository.RepositoryComponent
 import com.newangle.healthy.net.ApiService
@@ -20,7 +21,7 @@ class LoginRepository @Inject constructor(factory: RepositoryComponent.Factory) 
 
     suspend fun login(phoneNumber : String, password : String): Response<Any> =
         withContext(Dispatchers.IO) {
-            Logger.i("main activity thread 2 %s", Thread.currentThread().name)
+            LogUtils.i("main activity thread 2 %s", Thread.currentThread().name)
             apiService.login(phoneNumber, password)
         }
 

@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.bean.User
 import com.newangle.healthy.di.activity.ActivityComponent
 import com.newangle.healthy.net.Response
@@ -32,7 +33,7 @@ class LoginViewModel @Inject constructor(application: Application, activityCompo
     fun  login(phone:String, password:String) {
         _state.value = State.LOADING
         viewModelScope.launch {
-            Logger.i("main activity thread 1 %s", Thread.currentThread().name)
+            LogUtils.i("main activity thread 1 %s", Thread.currentThread().name)
             val result : Response<Any> = loginRepository.login(phone,password)
             if (result.code == 200) {
                 _state.value = State.SUCCESS
@@ -40,7 +41,7 @@ class LoginViewModel @Inject constructor(application: Application, activityCompo
             } else {
                 _state.value = State.FAILED(result.code, result.msg)
             }
-            Logger.i("result ", result)
+            LogUtils.i("result ", result.code.toString())
         }
 
     }
