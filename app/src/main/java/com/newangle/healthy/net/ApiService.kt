@@ -19,4 +19,8 @@ interface ApiService {
 
     @POST("/register")
     suspend fun register(@Body user: User) : Response<User>
+
+
+    @GET("/users/queryAllUsers")
+    suspend fun queryUserList() : Response<List<User>>
 }

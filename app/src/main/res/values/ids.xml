@@ -40,4 +40,9 @@
     <item name="next_step" type="id"/>
     <item name="wifi_list_rv" type="id"/>
     <item name="wifi_list_rv_item" type="id"/>
+    <item name="user_list_item_name" type="id"/>
+    <item name="user_list_item_email" type="id"/>
+    <item name="user_list_item_right_btn" type="id"/>
+    <item name="user_list_rv" type="id"/>
+    <item name="user_list_container" type="id"/>
 </resources>

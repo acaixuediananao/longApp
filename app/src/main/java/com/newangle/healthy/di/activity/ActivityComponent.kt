@@ -11,6 +11,7 @@ import com.newangle.healthy.pages.register.RegisterActivity
 import com.newangle.healthy.pages.register.RegisterViewModel
 import com.newangle.healthy.pages.setting.SettingActivity
 import com.newangle.healthy.pages.setting.SettingViewModel
+import com.newangle.healthy.pages.user.list.UserListActivity
 import com.newangle.healthy.pages.welcome.WelcomeActivity
 import com.newangle.healthy.pages.wifi.ConnectWifiActivity
 import com.newangle.healthy.pages.wifi.ConnectWifiViewModel
@@ -45,4 +46,6 @@ interface ActivityComponent {
 
     fun inject(connectWifiActivity: ConnectWifiActivity)
     fun inject(connectWifiViewModel: ConnectWifiViewModel)
+
+    fun inject(userListActivity: UserListActivity)
 }

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -34,6 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".pages.welcome.WelcomeActivity"
+            android:clearTaskOnLaunch="true"
             android:exported="true"
             android:launchMode="singleTask">
             <intent-filter>
@@ -54,6 +56,9 @@
         <activity
             android:name=".pages.main.MainActivity"
             android:exported="false" />
+
+        <activity android:name=".pages.user.list.UserListActivity"
+            android:exported="false"/>
 
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"

@@ -6,6 +6,8 @@ import com.newangle.healthy.pages.setting.info.DeviceInfoFragment
 import com.newangle.healthy.pages.setting.info.DeviceInfoViewModel
 import com.newangle.healthy.pages.setting.parameter.HardwareParameterFragment
 import com.newangle.healthy.pages.setting.parameter.HardwareParameterViewModel
+import com.newangle.healthy.pages.user.list.UserListFragment
+import com.newangle.healthy.pages.user.list.UserListViewModel
 import dagger.Subcomponent
 
 @FragmentScope
@@ -25,4 +27,7 @@ interface FragmentComponent {
 
     fun inject(hardwareParameterFragment: HardwareParameterFragment)
     fun inject(hardwareParameterViewModel: HardwareParameterViewModel)
+
+    fun inject(userListFragment: UserListFragment)
+    fun inject(userListViewModel: UserListViewModel)
 }
