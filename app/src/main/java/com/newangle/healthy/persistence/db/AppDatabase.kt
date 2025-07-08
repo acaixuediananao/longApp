@@ -1,13 +1,16 @@
 package com.newangle.healthy.persistence.db
 
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.migration.AutoMigrationSpec
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.newangle.healthy.bean.DeviceInfo
+import com.newangle.healthy.bean.TreatmentPlanInfo
 import com.newangle.healthy.bean.User
 
-@Database(entities = [User::class, DeviceInfo::class], version = 2)
+@Database(entities = [User::class, DeviceInfo::class, TreatmentPlanInfo::class], version = 3, autoMigrations = [AutoMigration(from = 2, to = 3)])
 abstract class AppDatabase : RoomDatabase() {
    abstract fun userDao() : UserDao
    abstract fun settingDao() : SettingDao
