@@ -46,7 +46,7 @@ class SelectLanguageActivity : BaseActivity() {
             nextStep.setOnClickListener {
                 startActivity(Intent(this@SelectLanguageActivity, PasswordActivity::class.java))
             }
-            nextStep.visibility = if(FROM_LAUNCH.equals(intent.getStringExtra(FROM_KEY)))
+            nextStep.visibility = if(FROM_LAUNCH == intent.getStringExtra(FROM_KEY))
                 View.VISIBLE
             else
                 View.GONE

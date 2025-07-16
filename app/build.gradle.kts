@@ -10,8 +10,8 @@ android {
 
     defaultConfig {
         applicationId = "com.newangle.healthy"
-        minSdk = 24
-        targetSdk = 35
+        minSdk = 28
+        targetSdk = 29
         versionCode = 1
         versionName = "1.0"
 

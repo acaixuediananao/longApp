@@ -45,4 +45,5 @@
     <item name="user_list_item_right_btn" type="id"/>
     <item name="user_list_rv" type="id"/>
     <item name="user_list_container" type="id"/>
+    <item name="user_list_item_container" type="id"/>
 </resources>

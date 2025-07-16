@@ -1,25 +1,26 @@
 package com.newangle.healthy.pages.user.list
 
 import android.content.Context
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.support.annotation.NonNull
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.newangle.healthy.NewAngleApp
-import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseFragment
 import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.bean.UiState
+import com.newangle.healthy.bean.User
 import com.newangle.healthy.databinding.FragmentUserListBinding
-import com.newangle.healthy.di.fragment.FragmentComponent
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.math.abs
 
 class UserListFragment : BaseFragment() {
 
@@ -31,12 +32,15 @@ class UserListFragment : BaseFragment() {
         (requireActivity().application as NewAngleApp).appComponent.fragmentComponent().create()
     }
 
+    private val buttonClick = { user:User -> LogUtils.i("click user info $user")}
+    private val deleteClick = { user:User ->
+        LogUtils.i("click delete user info $user")
+    }
+
     @Inject
     lateinit var viewModel: UserListViewModel
     lateinit var binding: FragmentUserListBinding
-    private val adapter = UserListAdapter { user ->
-        LogUtils.i("click user info $user")
-    }
+    private val adapter = UserListAdapter(buttonClick = buttonClick, deleteClick = deleteClick)
 
     override fun onAttach(context: Context) {
         fragmentComponent.inject(this)

@@ -9,7 +9,10 @@ import com.newangle.healthy.databinding.UserListItemBinding
 import com.newangle.healthy.pages.user.list.UserListAdapter.UserListViewHolder
 import kotlin.collections.mutableListOf
 
-class UserListAdapter(val data: MutableList<User> = mutableListOf<User>(),val buttonClick:(user: User) -> Unit) : RecyclerView.Adapter<UserListViewHolder>() {
+class UserListAdapter(val data: MutableList<User> = mutableListOf<User>(),
+                      val buttonClick:(user: User) -> Unit,
+                      val deleteClick:(user:User) -> Unit
+    ) : RecyclerView.Adapter<UserListViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -24,9 +27,11 @@ class UserListAdapter(val data: MutableList<User> = mutableListOf<User>(),val bu
         position: Int
     ) {
         val user = data[position]
-        holder.binding.userListItemName.text = user.userName
-        holder.binding.userListItemEmail.text = user.email
-        holder.binding.userListItemRightBtn.setOnClickListener { v -> buttonClick(user) }
+        with(holder.binding) {
+            userListItemName.text = user.userName
+            userListItemEmail.text = user.email
+            userListItemRightBtn.setOnClickListener { v -> buttonClick(user) }
+        }
     }
 
     override fun getItemCount() = data.size
