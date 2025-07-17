@@ -11,7 +11,7 @@ import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseActivity
 import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.pages.home.HomeActivity
-import com.newangle.healthy.pages.register.RegisterActivity
+import com.newangle.healthy.pages.language.SelectLanguageActivity
 import com.newangle.healthy.pages.setting.SettingActivity
 import com.newangle.healthy.pages.user.list.UserListActivity
 import com.orhanobut.logger.Logger
@@ -54,12 +54,17 @@ class MainActivity : BaseActivity() {
         }
 
         findViewById<TextView>(R.id.register_user).setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
 
         findViewById<TextView>(R.id.user_list_page).setOnClickListener {
             val intent = Intent(this, UserListActivity::class.java)
+            startActivity(intent)
+        }
+
+        findViewById<TextView>(R.id.select_language).setOnClickListener {
+            val intent = Intent(this, SelectLanguageActivity::class.java)
             startActivity(intent)
         }
     }

@@ -46,4 +46,22 @@
     <item name="user_list_rv" type="id"/>
     <item name="user_list_container" type="id"/>
     <item name="user_list_item_container" type="id"/>
+    <item name="top_icon" type="id"/>
+    <item name="thumb" type="id"/>
+    <item name="nav_home" type="id"/>
+    <item name="home_page_nav_home_icon" type="id"/>
+    <item name="home_page_nav_home_text" type="id"/>
+    <item name="nav_links" type="id"/>
+    <item name="home_page_nav_links_icon" type="id"/>
+    <item name="home_page_nav_links_text" type="id"/>
+    <item name="nav_music" type="id"/>
+    <item name="home_page_nav_music_icon" type="id"/>
+    <item name="home_page_nav_music_text" type="id"/>
+    <item name="nav_users" type="id"/>
+    <item name="home_page_nav_users_icon" type="id"/>
+    <item name="home_page_nav_users_text" type="id"/>
+    <item name="nav_settings" type="id"/>
+    <item name="home_page_nav_settings_icon" type="id"/>
+    <item name="home_page_nav_settings_text" type="id"/>
+    <item name="home_view_pager" type="id"/>
 </resources>

@@ -51,7 +51,7 @@ class WelcomeActivity : AppCompatActivity() {
                         dataStoreRepository.saveFirstLauncher(false)
                         handler.postDelayed({
                             startNexPage(it)
-                        }, 5000)
+                        }, 2000)
                     }
             }
         }
