@@ -4,9 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.newangle.healthy.NewAngleApp
+import com.newangle.healthy.R
 import com.newangle.healthy.base.BaseFragment
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.base.pageradapter.BasePagerAdapter
 import com.newangle.healthy.databinding.ActivityHomeBinding
 import com.newangle.healthy.pages.setting.about.AboutDeviceFragment
@@ -17,11 +23,12 @@ import com.newangle.healthy.pages.setting.parameter.HardwareParameterFragment
 class HomeActivity : AppCompatActivity() {
 
     lateinit var homeBinding: ActivityHomeBinding
+    private var navItemList: MutableList<LinearLayout> = mutableListOf()
     private val activityComponent by lazy {
         (application as NewAngleApp).appComponent.activityComponent().create()
     }
-    private var lastSelectThumb = HOME_TAG
-    private var currentSelectThumb = HOME_TAG
+    private var lastSelectThumb = -1
+    private var currentSelectThumb = HOME_NAV_POSITION
     override fun onCreate(savedInstanceState: Bundle?) {
         activityComponent.inject(this)
         super.onCreate(savedInstanceState)
@@ -32,53 +39,85 @@ class HomeActivity : AppCompatActivity() {
 
     private fun  setUpView() {
         with(homeBinding) {
-            navHome.setOnClickListener {
-                currentSelectThumb = HOME_TAG
-                moveSelectThumb(HOME_TAG)
-                lastSelectThumb = HOME_TAG
-                homeViewPager.setCurrentItem(0, false)
+            navItemList.add(navHome)
+            navItemList.add(navLinks)
+            navItemList.add(navMusic)
+            navItemList.add(navUsers)
+            navItemList.add(navSettings)
+            for ((index, value) in navItemList.withIndex()) {
+                value.setOnClickListener {
+                    LogUtils.i("home click nav index $index, currentPosition $currentSelectThumb, lastSelectThumb $lastSelectThumb " )
+                    if (currentSelectThumb != index) {
+                        changeSelectState(index)
+                    }
+                    moveSelectThumb(index)
+                    currentSelectThumb = index
+                    when(index) {
+                        HOME_NAV_POSITION -> {
+                            lastSelectThumb = HOME_NAV_POSITION
+                            homeViewPager.setCurrentItem(index, false)
+                        }
+                        LINK_NAV_POSITION -> {
+                            LogUtils.i("home click nav wifi open wifi")
+                            openWifiSettings()
+                        }
+                        MUSIC_NAV_POSITION -> {
+                            LogUtils.i("home click nav music open music")
+                            openMediaLibrary()
+                        }
+                        USER_NAV_POSITION -> {
+                            lastSelectThumb = USER_NAV_POSITION
+                            homeViewPager.setCurrentItem(1, false)
+                        }
+                        SETTING_NAV_POSITION -> {
+                            lastSelectThumb = SETTING_NAV_POSITION
+                            homeViewPager.setCurrentItem(2, false)
+                        }
+                    }
+                    LogUtils.i("home click end currentPosition $currentSelectThumb, lastSelectThumb $lastSelectThumb " )
+                }
             }
-            navLinks.setOnClickListener {
-                currentSelectThumb = LINK_TAG
-                moveSelectThumb(LINK_TAG)
-                openWifiSettings()
-            }
-            navMusic.setOnClickListener {
-                currentSelectThumb = MUSIC_TAG
-                moveSelectThumb(MUSIC_TAG)
-                openMediaLibrary()
-            }
-            navUsers.setOnClickListener {
-                currentSelectThumb = USER_TAG
-                moveSelectThumb(USER_TAG)
-                lastSelectThumb = USER_TAG
-                homeViewPager.setCurrentItem(1, false)
-            }
-            navSettings.setOnClickListener {
-                currentSelectThumb = SETTING_TAG
-                moveSelectThumb(SETTING_TAG)
-                lastSelectThumb = SETTING_TAG
-                homeViewPager.setCurrentItem(2, false)
-            }
+
             homeViewPager.apply {
                 setUserInputEnabled(false)
                 val data = listOf<BaseFragment>(DeviceInfoFragment(), HardwareParameterFragment(), AboutDeviceFragment())
                 adapter = BasePagerAdapter(data, this@HomeActivity)
                 currentItem = 0
+                changeSelectState(HOME_NAV_POSITION)
+                lastSelectThumb = currentSelectThumb
             }
         }
     }
 
-    private fun moveSelectThumb(tag: String) {
+    private fun changeSelectState(position: Int) {
+        LogUtils.i("changeSelectState position $position, currentPosition $currentSelectThumb, lastSelectThumb $lastSelectThumb " )
+        val defaultColor = ContextCompat.getColor(this@HomeActivity, R.color.color_FF838392)
+        val selectColor = ContextCompat.getColor(this@HomeActivity, R.color.color_12DCB8)
+        with(homeBinding) {
+            navItemList[currentSelectThumb].findViewWithTag<TextView>(NAV_TEXT_TAG)?.setTextColor(defaultColor)
+            navItemList[currentSelectThumb].findViewWithTag<ImageView>(NAV_ICON_TAG)?.setColorFilter(defaultColor)
+            for ((index, value) in navItemList.withIndex()) {
+                if (position == index) {
+                    value.findViewWithTag<TextView>(NAV_TEXT_TAG)?.setTextColor(selectColor)
+                    value.findViewWithTag<ImageView>(NAV_ICON_TAG)?.setColorFilter(selectColor)
+                    break
+                }
+            }
+        }
+    }
+
+    private fun moveSelectThumb(position: Int) {
+        LogUtils.i("move select thumb $position")
         val desPosition = IntArray(2)
-        when(tag) {
-            HOME_TAG -> homeBinding.navHome.getLocationOnScreen(desPosition)
-            LINK_TAG -> homeBinding.navLinks.getLocationOnScreen(desPosition)
-            MUSIC_TAG -> homeBinding.navMusic.getLocationOnScreen(desPosition)
-            USER_TAG -> homeBinding.navUsers.getLocationOnScreen(desPosition)
-            SETTING_TAG -> homeBinding.navSettings.getLocationOnScreen(desPosition)
+        when(position) {
+            HOME_NAV_POSITION -> homeBinding.navHome.getLocationOnScreen(desPosition)
+            LINK_NAV_POSITION -> homeBinding.navLinks.getLocationOnScreen(desPosition)
+            MUSIC_NAV_POSITION -> homeBinding.navMusic.getLocationOnScreen(desPosition)
+            USER_NAV_POSITION -> homeBinding.navUsers.getLocationOnScreen(desPosition)
+            SETTING_NAV_POSITION -> homeBinding.navSettings.getLocationOnScreen(desPosition)
         }
         val dexY = desPosition[1]
+        LogUtils.i("move select thumb dexY $dexY")
         homeBinding.thumb.animate().y(dexY.toFloat()).setDuration(300).start()
 
     }
@@ -105,16 +144,22 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
+        LogUtils.i("onRestart currentPosition $currentSelectThumb, lastSelectThumb $lastSelectThumb")
         if (currentSelectThumb != lastSelectThumb) {
             moveSelectThumb(lastSelectThumb)
+            changeSelectState(lastSelectThumb)
+            currentSelectThumb = lastSelectThumb
         }
     }
 
     companion object {
-        private const val HOME_TAG = "HomePage"
-        private const val LINK_TAG = "LINKPage"
-        private const val MUSIC_TAG = "MusicPage"
-        private const val USER_TAG = "UserPage"
-        private const val SETTING_TAG = "SettingPage"
+        private const val HOME_NAV_POSITION = 0
+        private const val LINK_NAV_POSITION = 1
+        private const val MUSIC_NAV_POSITION = 2
+        private const val USER_NAV_POSITION = 3
+        private const val SETTING_NAV_POSITION = 4
+
+        private const val NAV_TEXT_TAG = "Text"
+        private const val NAV_ICON_TAG = "Icon"
     }
 }

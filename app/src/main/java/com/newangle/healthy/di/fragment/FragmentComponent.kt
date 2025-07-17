@@ -1,5 +1,7 @@
 package com.newangle.healthy.di.fragment
 
+import com.newangle.healthy.pages.home.home.HomeOperationFragment
+import com.newangle.healthy.pages.home.home.HomeOperationViewModel
 import com.newangle.healthy.pages.setting.about.AboutDeviceFragment
 import com.newangle.healthy.pages.setting.about.AboutDeviceViewModel
 import com.newangle.healthy.pages.setting.info.DeviceInfoFragment
@@ -30,4 +32,8 @@ interface FragmentComponent {
 
     fun inject(userListFragment: UserListFragment)
     fun inject(userListViewModel: UserListViewModel)
+
+    fun inject(homeOperationFragment: HomeOperationFragment)
+    fun inject(homeOperationViewModel: HomeOperationViewModel)
+
 }

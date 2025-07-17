@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:ignore="MissingDefaultResource">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        
+        
+    </LinearLayout>
+    
+    <FrameLayout
+        android:layout_width="449dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="27dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="47dp"
+        android:background="@drawable/color_282a3b_corner_47_shap">
+
+        <ImageView
+            android:id="@+id/change_treatment_mode_button"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="28dp"/>
+        
+        
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="167dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/color_ffffff_opacity_6_corner_47_shap">
+            
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="99dp"
+                android:layout_marginStart="86dp"
+                android:layout_marginEnd="86dp"
+                android:layout_gravity="center"
+                android:background="@drawable/start_button_bg">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="46dp"
+                        android:text="Start"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="21dp"/>
+                    
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"/>
+                </LinearLayout>
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+</LinearLayout>
