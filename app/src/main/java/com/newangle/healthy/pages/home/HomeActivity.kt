@@ -15,6 +15,7 @@ import com.newangle.healthy.base.BaseFragment
 import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.base.pageradapter.BasePagerAdapter
 import com.newangle.healthy.databinding.ActivityHomeBinding
+import com.newangle.healthy.pages.home.home.HomeOperationFragment
 import com.newangle.healthy.pages.setting.about.AboutDeviceFragment
 import com.newangle.healthy.pages.setting.info.DeviceInfoFragment
 import com.newangle.healthy.pages.setting.parameter.HardwareParameterFragment
@@ -80,7 +81,7 @@ class HomeActivity : AppCompatActivity() {
 
             homeViewPager.apply {
                 setUserInputEnabled(false)
-                val data = listOf<BaseFragment>(DeviceInfoFragment(), HardwareParameterFragment(), AboutDeviceFragment())
+                val data = listOf<BaseFragment>(HomeOperationFragment.newInstance(), HardwareParameterFragment(), AboutDeviceFragment())
                 adapter = BasePagerAdapter(data, this@HomeActivity)
                 currentItem = 0
                 changeSelectState(HOME_NAV_POSITION)

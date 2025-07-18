@@ -6,14 +6,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_FF1E1E2C"
     tools:context=".pages.home.HomeActivity"
     tools:ignore="MissingDefaultResource">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="@dimen/dp_242"
-        android:layout_height="match_parent"
-        android:background="@color/color_FF1E1E2C">
+        android:layout_height="match_parent">
 
         <FrameLayout
             android:id="@id/top_icon"
@@ -21,8 +21,8 @@
             android:layout_height="@dimen/dp_175"
             app:layout_constraintTop_toTopOf="parent">
             <ImageView
-                android:layout_width="155dp"
-                android:layout_height="56dp"
+                android:layout_width="@dimen/dp_155"
+                android:layout_height="@dimen/dp_56"
                 app:layout_constraintTop_toTopOf="parent"
                 android:src="@drawable/newangle_logo"
                 android:layout_gravity="center"/>
@@ -51,9 +51,9 @@
 
             <ImageView
                 android:id="@id/home_page_nav_home_icon"
-                android:layout_width="66dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="37dp"
+                android:layout_width="@dimen/dp_66"
+                android:layout_height="@dimen/dp_55"
+                android:layout_marginStart="@dimen/dp_37"
                 android:src="@drawable/home_nav_home_icon_nor"
                 android:tag="Icon"/>
             <TextView
@@ -64,7 +64,7 @@
                 android:textSize="@dimen/dp_23"
                 android:textStyle="bold"
                 android:textColor="@color/color_FF838392"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="@dimen/dp_11"
                 android:tag="Text"/>
         </LinearLayout>
 
@@ -79,9 +79,9 @@
 
             <ImageView
                 android:id="@id/home_page_nav_links_icon"
-                android:layout_width="66dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="37dp"
+                android:layout_width="@dimen/dp_66"
+                android:layout_height="@dimen/dp_55"
+                android:layout_marginStart="@dimen/dp_37"
                 android:src="@drawable/home_nav_link_icon_nor"
                 android:tag="Icon"/>
             <TextView
@@ -92,7 +92,7 @@
                 android:textSize="@dimen/dp_23"
                 android:textStyle="bold"
                 android:textColor="@color/color_FF838392"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="@dimen/dp_11"
                 android:tag="Text"/>
         </LinearLayout>
 
@@ -107,9 +107,9 @@
 
             <ImageView
                 android:id="@id/home_page_nav_music_icon"
-                android:layout_width="66dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="37dp"
+                android:layout_width="@dimen/dp_66"
+                android:layout_height="@dimen/dp_55"
+                android:layout_marginStart="@dimen/dp_37"
                 android:src="@drawable/home_nav_music_icon_nor"
                 android:tag="Icon"/>
             <TextView
@@ -120,7 +120,7 @@
                 android:textSize="@dimen/dp_23"
                 android:textStyle="bold"
                 android:textColor="@color/color_FF838392"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="@dimen/dp_11"
                 android:tag="Text"/>
         </LinearLayout>
 
@@ -135,9 +135,9 @@
 
             <ImageView
                 android:id="@id/home_page_nav_users_icon"
-                android:layout_width="66dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="37dp"
+                android:layout_width="@dimen/dp_66"
+                android:layout_height="@dimen/dp_55"
+                android:layout_marginStart="@dimen/dp_37"
                 android:src="@drawable/home_nav_users_icon_nor"
                 android:tag="Icon"/>
             <TextView
@@ -148,7 +148,7 @@
                 android:textSize="@dimen/dp_23"
                 android:textStyle="bold"
                 android:textColor="@color/color_FF838392"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="@dimen/dp_11"
                 android:tag="Text"/>
         </LinearLayout>
 
@@ -163,9 +163,9 @@
 
             <ImageView
                 android:id="@id/home_page_nav_settings_icon"
-                android:layout_width="66dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="37dp"
+                android:layout_width="@dimen/dp_66"
+                android:layout_height="@dimen/dp_55"
+                android:layout_marginStart="@dimen/dp_37"
                 android:src="@drawable/home_nav_settings_icon_nor"
                 android:tag="Icon"/>
             <TextView
@@ -176,12 +176,16 @@
                 android:textSize="@dimen/dp_23"
                 android:textStyle="bold"
                 android:textColor="@color/color_FF838392"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="@dimen/dp_11"
                 android:tag="Text"/>
         </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/color_91979797"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@id/home_view_pager"
