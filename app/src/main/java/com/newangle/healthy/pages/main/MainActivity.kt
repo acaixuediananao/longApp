@@ -56,6 +56,7 @@ class MainActivity : BaseActivity() {
         findViewById<TextView>(R.id.register_user).setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
+            LogUtils.i("weixiaolong---- click main activity ${System.currentTimeMillis()}")
         }
 
         findViewById<TextView>(R.id.user_list_page).setOnClickListener {

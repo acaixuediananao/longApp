@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.newangle.healthy.NewAngleApp
 import com.newangle.healthy.base.BaseFragment
+import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.databinding.HomeOperationFragmentLayoutBinding
 import com.newangle.healthy.di.fragment.FragmentComponent
 import javax.inject.Inject
@@ -24,6 +25,7 @@ class HomeOperationFragment : BaseFragment() {
     override fun onAttach(context: Context) {
         fragmentComponent.inject(this)
         super.onAttach(context)
+        LogUtils.i("weixiaolong---- home operation fragment on attach ${System.currentTimeMillis()}")
     }
 
     override fun onCreateView(
@@ -32,7 +34,13 @@ class HomeOperationFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = HomeOperationFragmentLayoutBinding.inflate(inflater, container, false)
+        LogUtils.i("weixiaolong---- home operation fragment on create view  ${System.currentTimeMillis()}")
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        LogUtils.i("weixiaolong---- home operation fragment on resume ${System.currentTimeMillis()}")
     }
 
     companion object {
