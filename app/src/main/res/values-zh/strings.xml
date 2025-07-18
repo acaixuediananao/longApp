@@ -22,4 +22,8 @@
     <string name="home_page_nav_music">媒体</string>
     <string name="home_page_nav_users">用户</string>
     <string name="home_page_nav_settings">设置</string>
+    <string name="welcome_speech">欢迎操作</string>
+    <string name="water_flow_text">水流</string>
+    <string name="water_temperature_text">水温</string>
+    <string name="water_level_text">水位</string>
 </resources>

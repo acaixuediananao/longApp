@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="请选择需要连接的网络"
         android:textSize="17dp"
-        android:textColor="@color/black"
+        android:textColor="@color/color_black"
         android:layout_gravity="center_horizontal"/>
 
     <androidx.recyclerview.widget.RecyclerView

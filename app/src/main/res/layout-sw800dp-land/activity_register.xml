@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="@string/username"
             android:gravity="end"
-            android:textColor="@color/ff999999"
+            android:textColor="@color/color_ff999999"
             android:textSize="17dp"/>
 
         <EditText
@@ -60,7 +60,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/gender"
-            android:textColor="@color/ff999999"
+            android:textColor="@color/color_ff999999"
             android:textSize="17dp"
             android:gravity="end"/>
 
@@ -86,7 +86,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/telephone"
-            android:textColor="@color/ff999999"
+            android:textColor="@color/color_ff999999"
             android:textSize="17dp"
             android:gravity="end"/>
 
@@ -113,7 +113,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/birthday"
-            android:textColor="@color/ff999999"
+            android:textColor="@color/color_ff999999"
             android:textSize="17dp"
             android:gravity="end"/>
 
@@ -141,7 +141,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/email"
-            android:textColor="@color/ff999999"
+            android:textColor="@color/color_ff999999"
             android:textSize="17dp"
             android:gravity="end"/>
 
@@ -167,7 +167,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/nurse"
-            android:textColor="@color/ff999999"
+            android:textColor="@color/color_ff999999"
             android:textSize="17dp"
             android:gravity="end"/>
 
@@ -191,7 +191,7 @@
         android:layout_marginTop="56dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
-        android:textColor="@color/white"
+        android:textColor="@color/color_white"
         android:textSize="17dp"
         android:text="@string/register"
         android:gravity="center"/>

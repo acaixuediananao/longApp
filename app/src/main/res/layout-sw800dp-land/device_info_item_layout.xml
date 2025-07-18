@@ -10,7 +10,7 @@
         android:id="@id/device_info_item_card_container"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        app:cardBackgroundColor="@color/ff1f1e2c"
+        app:cardBackgroundColor="@color/color_ff1f1e2c"
         app:cardElevation="10dp"
         app:cardCornerRadius="10dp">
 
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:textColor="@color/ffa2a5c3"
+            android:textColor="@color/color_ffa2a5c3"
             android:textSize="20dp"
             android:textStyle="bold"
             tools:text="@string/about_device"/>
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="@color/ffa2a5c3"
+            android:textColor="@color/color_ffa2a5c3"
             android:textSize="34dp"
             android:textStyle="bold"
             tools:text="@string/about_device"/>

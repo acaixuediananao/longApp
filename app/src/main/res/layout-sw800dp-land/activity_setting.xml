@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:background="@color/ff262630">
+        android:background="@color/color_ff262630">
 
         <ImageView
             android:id="@id/setting_page_back"

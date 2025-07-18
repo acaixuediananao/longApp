@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:textColor="@color/white"
+        android:textColor="@color/color_white"
         android:text="选择用户生日"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
         android:theme="@style/CustomDatePickerStyle"
         android:datePickerMode="spinner"
         android:calendarViewShown="false"
-        android:calendarTextColor="@color/white"
+        android:calendarTextColor="@color/color_white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/select_date_title"/>
@@ -48,7 +48,7 @@
             android:layout_height="36dp"
             android:text="@string/cancel"
             android:textSize="16dp"
-            android:textColor="@color/white"
+            android:textColor="@color/color_white"
             android:gravity="center"
             android:layout_marginEnd="10dp"
             android:background="@drawable/ff2b2c30_bg_8_corner_shape"/>
@@ -60,7 +60,7 @@
             android:text="@string/confirm"
             android:textSize="16dp"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/color_white"
             android:layout_marginStart="10dp"
             android:background="@drawable/ff98f3c8_bg_8_corner_shape"/>
 

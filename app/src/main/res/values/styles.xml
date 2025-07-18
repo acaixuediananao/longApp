@@ -2,13 +2,13 @@
 <resources>
     <style name="CustomDatePickerDialog" parent="Theme.MaterialComponents.Dialog">
         <item name="android:windowBackground">@drawable/ff2b2c30_bg_8_corner_shape</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/color_white</item>
     </style>
 
     <style name="CustomDatePickerStyle" parent="android:Widget.Material.DatePicker">
-        <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:textColorSecondary">@color/white</item>
-        <item name="android:textColorTertiary">@color/white</item>
+        <item name="android:textColorPrimary">@color/color_white</item>
+        <item name="android:textColorSecondary">@color/color_white</item>
+        <item name="android:textColorTertiary">@color/color_white</item>
         <item name="android:headerBackground">#00FFFFFF</item> <!-- 隐藏默认头部 -->
     </style>
 </resources>
