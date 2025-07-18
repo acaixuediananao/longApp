@@ -5,6 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
+    android:baselineAligned="false"
+    android:measureWithLargestChild="false"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     tools:ignore="MissingDefaultResource">
 
     <LinearLayout
@@ -45,7 +49,6 @@
             android:layout_marginStart="@dimen/dp_106"
             android:layout_marginTop="@dimen/dp_17"
             android:layout_marginEnd="@dimen/dp_106"
-            android:baselineAligned="false"
             android:orientation="horizontal">
 
             <LinearLayout
