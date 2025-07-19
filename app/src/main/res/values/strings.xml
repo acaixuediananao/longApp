@@ -26,4 +26,9 @@
     <string name="water_flow_text">Water flow</string>
     <string name="water_temperature_text">Water temperature</string>
     <string name="water_level_text">Water level</string>
+    <string name="frequency_value_unit_text" translatable="false">Hz</string>
+    <string name="energy_value_unit_text" translatable="false">J/cm²</string>
+    <string name="pulse_value_unit_text" translatable="false">Ms</string>
+    <string name="start_work_state_start">Start</string>
+    <string name="start_work_state_stop">Stop</string>
 </resources>
