@@ -10,6 +10,7 @@ import com.newangle.healthy.base.BaseFragment
 import com.newangle.healthy.base.logger.LogUtils
 import com.newangle.healthy.databinding.HomeOperationFragmentLayoutBinding
 import com.newangle.healthy.di.fragment.FragmentComponent
+import com.orhanobut.logger.Logger
 import javax.inject.Inject
 
 class HomeOperationFragment : BaseFragment() {

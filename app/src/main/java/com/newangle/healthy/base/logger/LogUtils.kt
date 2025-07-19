@@ -74,7 +74,7 @@ object LogUtils {
     }
 
     fun v(tag: String, msg: String) {
-        Logger.v(tag, msg)
+        Logger.v("$tag%s", msg)
         writeToFile("V", tag, msg)
     }
 
@@ -83,7 +83,7 @@ object LogUtils {
     }
 
     fun d(tag: String, msg: String) {
-        Logger.d(tag, msg)
+        Logger.d("$tag%s", msg)
         writeToFile("D", tag, msg)
     }
 
@@ -92,7 +92,7 @@ object LogUtils {
     }
 
     fun i(tag: String, msg: String) {
-        Logger.i(tag, msg)
+        Logger.i("$tag%s", msg)
         writeToFile("I", tag, msg)
     }
 
@@ -101,7 +101,7 @@ object LogUtils {
     }
 
     fun w(tag: String, msg: String) {
-        Logger.w(tag, msg)
+        Logger.w("$tag%s", msg)
         writeToFile("W", tag, msg)
     }
 
@@ -110,12 +110,12 @@ object LogUtils {
     }
 
     fun e(tag: String, msg: String) {
-        Logger.e(tag, msg)
+        Logger.e("$tag%s", msg)
         writeToFile("E", tag, msg)
     }
 
     fun e(tag: String, msg: String?, tr: Throwable) {
-        Logger.e(tag, msg, tr)
+        Logger.e("$tag%s", msg, tr)
         writeToFile("E", tag, msg + "\n" + getStackTraceString(tr))
     }
 
