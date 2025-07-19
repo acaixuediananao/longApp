@@ -1,0 +1,21 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景轨道 -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="4dp" />
+            <solid android:color="#434664" />
+            <size android:height="8dp" /> <!-- 背景高度 -->
+        </shape>
+    </item>
+
+    <!-- 进度轨道 -->
+    <item android:id="@android:id/progress" >
+        <clip>
+            <shape android:shape="rectangle">
+                <corners android:radius="4dp" />
+                <solid android:color="@color/color_FF8ADFDC" />
+                <size android:height="8dp" /> <!-- 进度条高度/粗细 -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>

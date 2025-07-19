@@ -29,4 +29,6 @@
     <string name="water_level_text">Water level</string>
     <string name="start_work_state_start">Start</string>
     <string name="start_work_state_stop">Stop</string>
+    <string name="alarm_handle_temperature_text">Handle Temperature</string>
+    <string name="alarm_pressure_text">Pressure</string>
 </resources>

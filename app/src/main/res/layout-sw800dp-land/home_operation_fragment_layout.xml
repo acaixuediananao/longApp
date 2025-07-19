@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     android:baselineAligned="false"
-    android:measureWithLargestChild="false"
     android:clipChildren="false"
     android:clipToPadding="false"
+    android:measureWithLargestChild="false"
+    android:orientation="horizontal"
     tools:ignore="MissingDefaultResource">
 
     <LinearLayout
@@ -234,47 +234,48 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/frequency"
-                    android:textSize="@dimen/sp_20"
-                    android:textColor="@color/color_FF4E9B90"
-                    android:layout_toEndOf="@id/frequency_operation_layout"
                     android:layout_alignTop="@id/frequency_operation_layout"
                     android:layout_marginStart="@dimen/dp_56"
                     android:layout_marginTop="@dimen/dp_138"
-                    android:rotation="15"/>
+                    android:layout_toEndOf="@id/frequency_operation_layout"
+                    android:rotation="15"
+                    android:text="@string/frequency"
+                    android:textColor="@color/color_FF4E9B90"
+                    android:textSize="@dimen/sp_20" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/frequency_"
-                    android:textSize="@dimen/sp_20"
-                    android:textColor="@color/color_FF4E9B90"
-                    android:layout_toEndOf="@id/frequency_operation_layout"
                     android:layout_alignBottom="@id/frequency_card_bg"
-                    android:layout_marginBottom="@dimen/dp_47"
                     android:layout_marginStart="@dimen/dp_15"
-                    android:rotation="15"/>
+                    android:layout_marginBottom="@dimen/dp_47"
+                    android:layout_toEndOf="@id/frequency_operation_layout"
+                    android:rotation="15"
+                    android:text="@string/frequency_"
+                    android:textColor="@color/color_FF4E9B90"
+                    android:textSize="@dimen/sp_20" />
 
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/frequency_operation_layout"
-                    android:layout_toEndOf="@id/frequency_operation_layout"
+                    android:layout_marginStart="@dimen/dp_77"
                     android:layout_marginTop="@dimen/dp_58"
-                    android:layout_marginStart="@dimen/dp_77">
+                    android:layout_toEndOf="@id/frequency_operation_layout">
 
                     <View
                         android:id="@id/frequency_point_first"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:background="@drawable/frequency_point_first"/>
+                        android:background="@drawable/frequency_point_first" />
+
                     <View
                         android:id="@id/frequency_point_second"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:layout_marginTop="@dimen/dp_10"
                         android:layout_marginStart="@dimen/dp_20"
-                        android:background="@drawable/frequency_point_second"/>
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:background="@drawable/frequency_point_second" />
                 </FrameLayout>
 
             </RelativeLayout>
@@ -366,47 +367,48 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/energy"
-                    android:textSize="@dimen/sp_20"
-                    android:textColor="@color/color_FFD872C7"
-                    android:layout_toEndOf="@id/energy_operation_layout"
                     android:layout_alignTop="@id/energy_operation_layout"
                     android:layout_marginStart="@dimen/dp_56"
                     android:layout_marginTop="@dimen/dp_138"
-                    android:rotation="15"/>
+                    android:layout_toEndOf="@id/energy_operation_layout"
+                    android:rotation="15"
+                    android:text="@string/energy"
+                    android:textColor="@color/color_FFD872C7"
+                    android:textSize="@dimen/sp_20" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/energy_"
-                    android:textSize="@dimen/sp_20"
-                    android:textColor="@color/color_FFD872C7"
-                    android:layout_toEndOf="@id/energy_operation_layout"
                     android:layout_alignBottom="@id/energy_card_bg"
-                    android:layout_marginBottom="@dimen/dp_47"
                     android:layout_marginStart="@dimen/dp_15"
-                    android:rotation="15"/>
+                    android:layout_marginBottom="@dimen/dp_47"
+                    android:layout_toEndOf="@id/energy_operation_layout"
+                    android:rotation="15"
+                    android:text="@string/energy_"
+                    android:textColor="@color/color_FFD872C7"
+                    android:textSize="@dimen/sp_20" />
 
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/energy_operation_layout"
-                    android:layout_toEndOf="@id/energy_operation_layout"
+                    android:layout_marginStart="@dimen/dp_77"
                     android:layout_marginTop="@dimen/dp_58"
-                    android:layout_marginStart="@dimen/dp_77">
+                    android:layout_toEndOf="@id/energy_operation_layout">
 
                     <View
                         android:id="@id/energy_point_first"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:background="@drawable/energy_point_first"/>
+                        android:background="@drawable/energy_point_first" />
+
                     <View
                         android:id="@id/energy_point_second"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:layout_marginTop="@dimen/dp_10"
                         android:layout_marginStart="@dimen/dp_20"
-                        android:background="@drawable/energy_point_second"/>
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:background="@drawable/energy_point_second" />
                 </FrameLayout>
 
             </RelativeLayout>
@@ -500,52 +502,181 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pulse"
-                    android:textSize="@dimen/sp_20"
-                    android:textColor="@color/color_FF95B1BC"
-                    android:layout_toEndOf="@id/pulse_operation_layout"
                     android:layout_alignTop="@id/pulse_operation_layout"
                     android:layout_marginStart="@dimen/dp_56"
                     android:layout_marginTop="@dimen/dp_138"
-                    android:rotation="15"/>
+                    android:layout_toEndOf="@id/pulse_operation_layout"
+                    android:rotation="15"
+                    android:text="@string/pulse"
+                    android:textColor="@color/color_FF95B1BC"
+                    android:textSize="@dimen/sp_20" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pulse_"
-                    android:textSize="@dimen/sp_20"
-                    android:textColor="@color/color_FF95B1BC"
-                    android:layout_toEndOf="@id/pulse_operation_layout"
                     android:layout_alignBottom="@id/pulse_card_bg"
-                    android:layout_marginBottom="@dimen/dp_47"
                     android:layout_marginStart="@dimen/dp_15"
-                    android:rotation="15"/>
+                    android:layout_marginBottom="@dimen/dp_47"
+                    android:layout_toEndOf="@id/pulse_operation_layout"
+                    android:rotation="15"
+                    android:text="@string/pulse_"
+                    android:textColor="@color/color_FF95B1BC"
+                    android:textSize="@dimen/sp_20" />
 
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/pulse_operation_layout"
-                    android:layout_toEndOf="@id/pulse_operation_layout"
+                    android:layout_marginStart="@dimen/dp_77"
                     android:layout_marginTop="@dimen/dp_58"
-                    android:layout_marginStart="@dimen/dp_77">
+                    android:layout_toEndOf="@id/pulse_operation_layout">
 
                     <View
                         android:id="@id/pulse_point_first"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:background="@drawable/pulse_point_first"/>
+                        android:background="@drawable/pulse_point_first" />
+
                     <View
                         android:id="@id/pulse_point_second"
                         android:layout_width="@dimen/dp_44"
                         android:layout_height="@dimen/dp_44"
-                        android:layout_marginTop="@dimen/dp_10"
                         android:layout_marginStart="@dimen/dp_20"
-                        android:background="@drawable/pulse_point_second"/>
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:background="@drawable/pulse_point_second" />
                 </FrameLayout>
 
 
             </RelativeLayout>
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_99"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/alarm_handle_temperature_icon"
+                    android:drawablePadding="@dimen/dp_35"
+                    android:text="-6°C"
+                    android:textColor="@color/color_FF35EAC6"
+                    android:textSize="@dimen/sp_35"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="@string/alarm_handle_temperature_text"
+                    android:textColor="@color/color_FFF3F3F4"
+                    android:textSize="@dimen/sp_22" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/alarm_pressure_icon"
+                    android:drawablePadding="@dimen/dp_35"
+                    android:text="55MPa"
+                    android:textColor="@color/color_FF35EAC6"
+                    android:textSize="@dimen/sp_35"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="@string/alarm_pressure_text"
+                    android:textColor="@color/color_FFF3F3F4"
+                    android:textSize="@dimen/sp_22" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_20"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/handle_temperature_start_value" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/refrigeration_grade_f0"
+                        android:textColor="@color/color_FF8ADFDC"
+                        android:textSize="@dimen/sp_21" />
+
+                </LinearLayout>
+
+                <SeekBar
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    android:progressDrawable="@drawable/handle_temperature_seekbar"
+                    android:thumb="@drawable/progress_thumb"
+                    android:thumbOffset="0dp"
+                    android:minHeight="@dimen/dp_8"
+                    android:maxHeight="@dimen/dp_8"
+                    android:progress="50"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/handle_temperature_end_value" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/refrigeration_grade_f5"
+                        android:textColor="@color/color_FF8ADFDC"
+                        android:textSize="@dimen/sp_21" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -594,14 +725,14 @@
                     android:id="@id/start_button"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/dp_99"
+                    android:layout_gravity="center"
+                    android:drawablePadding="@dimen/dp_21"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="@string/start_work_state_start"
                     android:textColor="@color/color_white"
                     android:textSize="@dimen/sp_46"
                     android:textStyle="bold"
-                    android:gravity="center"
-                    android:drawablePadding="@dimen/dp_21"
-                    android:includeFontPadding="false"
-                    android:layout_gravity="center"
                     app:drawableEndCompat="@drawable/start_state" />
             </FrameLayout>
         </FrameLayout>

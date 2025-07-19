@@ -49,9 +49,11 @@
 
     <!--sp-->
     <dimen name="sp_20">20sp</dimen>
+    <dimen name="sp_21">21sp</dimen>
     <dimen name="sp_22">22sp</dimen>
     <dimen name="sp_32">32sp</dimen>
     <dimen name="sp_33">33sp</dimen>
+    <dimen name="sp_35">35sp</dimen>
     <dimen name="sp_36">36sp</dimen>
     <dimen name="sp_44">44sp</dimen>
     <dimen name="sp_46">46sp</dimen>

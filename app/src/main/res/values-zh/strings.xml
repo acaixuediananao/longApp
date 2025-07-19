@@ -28,4 +28,6 @@
     <string name="water_level_text">水位</string>
     <string name="start_work_state_start">启动</string>
     <string name="start_work_state_stop">停止</string>
+    <string name="alarm_handle_temperature_text">手柄温度</string>
+    <string name="alarm_pressure_text">压力</string>
 </resources>
