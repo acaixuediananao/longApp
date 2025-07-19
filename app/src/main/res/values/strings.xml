@@ -29,6 +29,12 @@
     <string name="frequency_value_unit_text" translatable="false">Hz</string>
     <string name="energy_value_unit_text" translatable="false">J/cm²</string>
     <string name="pulse_value_unit_text" translatable="false">Ms</string>
+    <string name="frequency" translatable="false">Frequency</string>
+    <string name="energy" translatable="false">Energy</string>
+    <string name="pulse" translatable="false">Pulse</string>
+    <string name="frequency_" translatable="false">.....Frequency</string>
+    <string name="energy_" translatable="false">.....Energy</string>
+    <string name="pulse_" translatable="false">.....Pulse</string>
     <string name="start_work_state_start">Start</string>
     <string name="start_work_state_stop">Stop</string>
 </resources>

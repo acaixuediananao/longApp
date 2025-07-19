@@ -37,6 +37,7 @@
                 android:textStyle="bold" />
 
             <ImageView
+                android:id="@id/select_gender_icon"
                 android:layout_width="@dimen/dp_124"
                 android:layout_height="@dimen/dp_124"
                 android:src="@drawable/gender_female" />
@@ -59,6 +60,7 @@
 
 
                 <TextView
+                    android:id="@id/water_flow_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawablePadding="@dimen/dp_15"
@@ -86,6 +88,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@id/water_temperature_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawablePadding="@dimen/dp_27"
@@ -113,6 +116,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@id/water_level_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawablePadding="@dimen/dp_18"
@@ -151,13 +155,13 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/frequency_card_bg"
+                    android:id="@id/frequency_card_bg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/frequency_card_bg" />
 
                 <ImageView
-                    android:id="@+id/frequency_start_top_icon"
+                    android:id="@id/frequency_start_top_icon"
                     android:layout_width="@dimen/dp_69"
                     android:layout_height="@dimen/dp_68"
                     android:layout_marginStart="@dimen/dp_36"
@@ -180,6 +184,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@id/frequency_operation_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/frequency_card_bg"
@@ -187,7 +192,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/frequency_value_up_button"
+                        android:id="@id/frequency_value_up_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_58"
@@ -196,7 +201,7 @@
                         android:src="@drawable/frequency_value_up_icon" />
 
                     <TextView
-                        android:id="@+id/frequency_value"
+                        android:id="@id/frequency_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -206,7 +211,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/frequency_value_unit"
+                        android:id="@id/frequency_value_unit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -217,7 +222,7 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/frequency_value_down_button"
+                        android:id="@id/frequency_value_down_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_58"
@@ -225,6 +230,52 @@
                         android:src="@drawable/frequency_value_down_icon" />
                 </LinearLayout>
 
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frequency"
+                    android:textSize="@dimen/sp_20"
+                    android:textColor="@color/color_FF4E9B90"
+                    android:layout_toEndOf="@id/frequency_operation_layout"
+                    android:layout_alignTop="@id/frequency_operation_layout"
+                    android:layout_marginStart="@dimen/dp_56"
+                    android:layout_marginTop="@dimen/dp_138"
+                    android:rotation="15"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/frequency_"
+                    android:textSize="@dimen/sp_20"
+                    android:textColor="@color/color_FF4E9B90"
+                    android:layout_toEndOf="@id/frequency_operation_layout"
+                    android:layout_alignBottom="@id/frequency_card_bg"
+                    android:layout_marginBottom="@dimen/dp_47"
+                    android:layout_marginStart="@dimen/dp_15"
+                    android:rotation="15"/>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/frequency_operation_layout"
+                    android:layout_toEndOf="@id/frequency_operation_layout"
+                    android:layout_marginTop="@dimen/dp_58"
+                    android:layout_marginStart="@dimen/dp_77">
+
+                    <View
+                        android:id="@id/frequency_point_first"
+                        android:layout_width="@dimen/dp_44"
+                        android:layout_height="@dimen/dp_44"
+                        android:background="@drawable/frequency_point_first"/>
+                    <View
+                        android:id="@id/frequency_point_second"
+                        android:layout_width="@dimen/dp_44"
+                        android:layout_height="@dimen/dp_44"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:background="@drawable/frequency_point_second"/>
+                </FrameLayout>
 
             </RelativeLayout>
 
@@ -236,13 +287,13 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/energy_card_bg"
+                    android:id="@id/energy_card_bg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/energy_card_bg" />
 
                 <ImageView
-                    android:id="@+id/energy_start_top_icon"
+                    android:id="@id/energy_start_top_icon"
                     android:layout_width="@dimen/dp_69"
                     android:layout_height="@dimen/dp_68"
                     android:layout_marginStart="@dimen/dp_36"
@@ -265,6 +316,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@id/energy_operation_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/energy_card_bg"
@@ -272,7 +324,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/energy_value_up_button"
+                        android:id="@id/energy_value_up_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_58"
@@ -281,7 +333,7 @@
                         android:src="@drawable/energy_value_up_icon" />
 
                     <TextView
-                        android:id="@+id/energy_value"
+                        android:id="@id/energy_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -292,7 +344,7 @@
 
 
                     <TextView
-                        android:id="@+id/energy_value_unit"
+                        android:id="@id/energy_value_unit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -303,13 +355,60 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/energy_value_down_button"
+                        android:id="@id/energy_value_down_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_58"
                         android:layout_marginEnd="@dimen/dp_58"
                         android:src="@drawable/energy_value_down_icon" />
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/energy"
+                    android:textSize="@dimen/sp_20"
+                    android:textColor="@color/color_FFD872C7"
+                    android:layout_toEndOf="@id/energy_operation_layout"
+                    android:layout_alignTop="@id/energy_operation_layout"
+                    android:layout_marginStart="@dimen/dp_56"
+                    android:layout_marginTop="@dimen/dp_138"
+                    android:rotation="15"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/energy_"
+                    android:textSize="@dimen/sp_20"
+                    android:textColor="@color/color_FFD872C7"
+                    android:layout_toEndOf="@id/energy_operation_layout"
+                    android:layout_alignBottom="@id/energy_card_bg"
+                    android:layout_marginBottom="@dimen/dp_47"
+                    android:layout_marginStart="@dimen/dp_15"
+                    android:rotation="15"/>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/energy_operation_layout"
+                    android:layout_toEndOf="@id/energy_operation_layout"
+                    android:layout_marginTop="@dimen/dp_58"
+                    android:layout_marginStart="@dimen/dp_77">
+
+                    <View
+                        android:id="@id/energy_point_first"
+                        android:layout_width="@dimen/dp_44"
+                        android:layout_height="@dimen/dp_44"
+                        android:background="@drawable/energy_point_first"/>
+                    <View
+                        android:id="@id/energy_point_second"
+                        android:layout_width="@dimen/dp_44"
+                        android:layout_height="@dimen/dp_44"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:background="@drawable/energy_point_second"/>
+                </FrameLayout>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -320,13 +419,13 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/pulse_card_bg"
+                    android:id="@id/pulse_card_bg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/pulse_card_bg" />
 
                 <ImageView
-                    android:id="@+id/pulse_start_top_icon"
+                    android:id="@id/pulse_start_top_icon"
                     android:layout_width="@dimen/dp_69"
                     android:layout_height="@dimen/dp_68"
                     android:layout_marginStart="@dimen/dp_36"
@@ -349,6 +448,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@id/pulse_operation_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@id/pulse_card_bg"
@@ -356,7 +456,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/pulse_value_up_button"
+                        android:id="@id/pulse_value_up_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_58"
@@ -365,7 +465,7 @@
                         android:src="@drawable/pulse_value_up_icon" />
 
                     <TextView
-                        android:id="@+id/pulse_value"
+                        android:id="@id/pulse_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -375,7 +475,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/pulse_value_unit"
+                        android:id="@id/pulse_value_unit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -386,7 +486,7 @@
                         android:textStyle="bold" />
 
                     <ImageView
-                        android:id="@+id/pulse_value_down_button"
+                        android:id="@id/pulse_value_down_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_58"
@@ -395,6 +495,55 @@
 
 
                 </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pulse"
+                    android:textSize="@dimen/sp_20"
+                    android:textColor="@color/color_FF95B1BC"
+                    android:layout_toEndOf="@id/pulse_operation_layout"
+                    android:layout_alignTop="@id/pulse_operation_layout"
+                    android:layout_marginStart="@dimen/dp_56"
+                    android:layout_marginTop="@dimen/dp_138"
+                    android:rotation="15"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pulse_"
+                    android:textSize="@dimen/sp_20"
+                    android:textColor="@color/color_FF95B1BC"
+                    android:layout_toEndOf="@id/pulse_operation_layout"
+                    android:layout_alignBottom="@id/pulse_card_bg"
+                    android:layout_marginBottom="@dimen/dp_47"
+                    android:layout_marginStart="@dimen/dp_15"
+                    android:rotation="15"/>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/pulse_operation_layout"
+                    android:layout_toEndOf="@id/pulse_operation_layout"
+                    android:layout_marginTop="@dimen/dp_58"
+                    android:layout_marginStart="@dimen/dp_77">
+
+                    <View
+                        android:id="@id/pulse_point_first"
+                        android:layout_width="@dimen/dp_44"
+                        android:layout_height="@dimen/dp_44"
+                        android:background="@drawable/pulse_point_first"/>
+                    <View
+                        android:id="@id/pulse_point_second"
+                        android:layout_width="@dimen/dp_44"
+                        android:layout_height="@dimen/dp_44"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:background="@drawable/pulse_point_second"/>
+                </FrameLayout>
+
+
             </RelativeLayout>
 
 
@@ -411,7 +560,7 @@
         android:background="@drawable/color_282a3b_corner_47_shap">
 
         <ImageView
-            android:id="@+id/change_treatment_mode_button"
+            android:id="@id/change_treatment_mode_button"
             android:layout_width="@dimen/dp_101"
             android:layout_height="@dimen/dp_99"
             android:layout_marginStart="@dimen/dp_22"
@@ -419,6 +568,7 @@
             android:src="@drawable/treatment_switcher_beauty" />
 
         <ImageView
+            android:id="@id/selected_gender_figure"
             android:layout_width="@dimen/dp_371"
             android:layout_height="@dimen/dp_841"
             android:layout_gravity="center"
@@ -432,6 +582,7 @@
             android:background="@drawable/color_ffffff_opacity_6_corner_47_shap">
 
             <FrameLayout
+                android:id="@id/start_button_layout"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_99"
                 android:layout_gravity="center"
@@ -439,26 +590,19 @@
                 android:layout_marginEnd="@dimen/dp_86"
                 android:background="@drawable/start_button_bg">
 
-                <LinearLayout
+                <TextView
+                    android:id="@id/start_button"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dp_99"
+                    android:text="@string/start_work_state_start"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/sp_46"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:drawablePadding="@dimen/dp_21"
+                    android:includeFontPadding="false"
                     android:layout_gravity="center"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/dp_21"
-                        android:text="@string/start_work_state_start"
-                        android:textColor="@color/color_white"
-                        android:textSize="@dimen/sp_46"
-                        android:textStyle="bold" />
-
-                    <ImageView
-                        android:layout_width="@dimen/dp_48"
-                        android:layout_height="@dimen/dp_48" />
-                </LinearLayout>
+                    app:drawableEndCompat="@drawable/start_state" />
             </FrameLayout>
         </FrameLayout>
     </FrameLayout>

@@ -64,4 +64,39 @@
     <item name="home_page_nav_settings_icon" type="id"/>
     <item name="home_page_nav_settings_text" type="id"/>
     <item name="home_view_pager" type="id"/>
+    <item name="select_gender_icon" type="id"/>
+    <item name="water_flow_value" type="id"/>
+    <item name="water_temperature_value" type="id"/>
+    <item name="water_level_value" type="id"/>
+    <item name="frequency_card_bg" type="id"/>
+    <item name="frequency_start_top_icon" type="id"/>
+    <item name="frequency_operation_layout" type="id"/>
+    <item name="frequency_value_up_button" type="id"/>
+    <item name="frequency_value" type="id"/>
+    <item name="frequency_value_unit" type="id"/>
+    <item name="frequency_value_down_button" type="id"/>
+    <item name="frequency_point_first" type="id"/>
+    <item name="frequency_point_second" type="id"/>
+    <item name="energy_card_bg" type="id"/>
+    <item name="energy_start_top_icon" type="id"/>
+    <item name="energy_operation_layout" type="id"/>
+    <item name="energy_value_up_button" type="id"/>
+    <item name="energy_value" type="id"/>
+    <item name="energy_value_unit" type="id"/>
+    <item name="energy_value_down_button" type="id"/>
+    <item name="energy_point_first" type="id"/>
+    <item name="energy_point_second" type="id"/>
+    <item name="pulse_card_bg" type="id"/>
+    <item name="pulse_start_top_icon" type="id"/>
+    <item name="pulse_operation_layout" type="id"/>
+    <item name="pulse_value_up_button" type="id"/>
+    <item name="pulse_value" type="id"/>
+    <item name="pulse_value_unit" type="id"/>
+    <item name="pulse_value_down_button" type="id"/>
+    <item name="pulse_point_first" type="id"/>
+    <item name="pulse_point_second" type="id"/>
+    <item name="change_treatment_mode_button" type="id"/>
+    <item name="selected_gender_figure" type="id"/>
+    <item name="start_button_layout" type="id"/>
+    <item name="start_button" type="id"/>
 </resources>
